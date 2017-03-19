@@ -3,17 +3,19 @@ package com.provectus.taxmanagement.contoller;
 import com.provectus.taxmanagement.entity.Employee;
 import org.junit.Test;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfiguration;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
+import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 /**
  * Created by alexey on 19.03.17.
  */
-@EnableAutoConfiguration
-public class EmployeeControllerTest extends RootControllerTest {
+@EnableAutoConfiguration(exclude = {DataSourceAutoConfiguration.class, EmbeddedMongoAutoConfiguration.class, MongoAutoConfiguration.class, MongoDataAutoConfiguration.class})
+public class EmployeeControllerTest extends ControllerTestParent {
     @Test
     public void testSaveEmployee() {
         Employee employee = new Employee();
