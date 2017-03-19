@@ -3,12 +3,13 @@ package com.provectus.taxmanagement.controller;
 import com.provectus.taxmanagement.entity.Employee;
 import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * Created by alexey on 14.03.17.
@@ -31,14 +32,14 @@ public class EmployeeController {
      * @return
      */
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
-    public List<Employee> findByAnyName(@PathVariable String name) {
+    public Set<Employee> findByAnyName(@PathVariable String name) {
         List<Employee> foundRecords = employeeRepository.findByFirstNameLikeIgnoreCase(name);
         foundRecords.addAll(employeeRepository.findByLastNameLikeIgnoreCase(name));
         foundRecords.addAll(employeeRepository.findBySecondNameLikeIgnoreCase(name));
 
         HashSet<Employee> uniqEmployees = new HashSet<>();
         uniqEmployees.addAll(foundRecords);
-        return new ArrayList<>(uniqEmployees);
+        return uniqEmployees;
     }
 
     /**
@@ -49,11 +50,7 @@ public class EmployeeController {
      */
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Employee findById(@PathVariable String id) {
-        Employee employee = new Employee();
-        employee.setFirstName("Vasya");
-        employee.setSecondName("Ivanovich");
-        employee.setComment("test comment");
-        return employee;
+        return employeeRepository.findOne(new ObjectId(id));
     }
 
     /**
