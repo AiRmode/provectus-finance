@@ -59,7 +59,7 @@ public class EmployeeController {
     /**
      * method POST
      *
-     * @param employee
+     * @param employee json object from client
      * @return
      */
     @RequestMapping(value = "/", method = RequestMethod.POST)
@@ -73,8 +73,8 @@ public class EmployeeController {
      * @param id
      * @return
      */
-    public Employee update(String id) {
-        return null;
+    public boolean update(String id) {
+        return false;
     }
 
     /**

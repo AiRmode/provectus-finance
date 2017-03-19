@@ -1,6 +1,6 @@
 package com.provectus.taxmanagement.configuration.web;
 
-import com.provectus.taxmanagement.configuration.TaxManagementConfiguration;
+import com.provectus.taxmanagement.configuration.TestTaxManagementConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -11,7 +11,7 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  */
 @Configuration
 @EnableWebMvc
-@Import(TaxManagementConfiguration.class)
-@ComponentScan(basePackages = "com.provectus.taxmanagement.controller")
+@Import(TestTaxManagementConfiguration.class)
+@ComponentScan(basePackages = {"com.provectus.taxmanagement.controller", "com.provectus.taxmanagement.exception"})
 public class TestWebConfiguration {
 }

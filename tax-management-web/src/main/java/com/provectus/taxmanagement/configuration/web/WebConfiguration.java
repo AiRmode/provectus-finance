@@ -12,6 +12,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 @Configuration
 @EnableWebMvc
 @Import(TaxManagementConfiguration.class)
-@ComponentScan(basePackages = "com.provectus.taxmanagement.controller")
+@ComponentScan(basePackages = {"com.provectus.taxmanagement.controller", "com.provectus.taxmanagement.exception"})
 public class WebConfiguration {
 }

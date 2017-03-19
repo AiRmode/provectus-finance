@@ -10,6 +10,8 @@ import org.springframework.data.mongodb.core.SimpleMongoDbFactory;
 import org.springframework.data.mongodb.core.mapping.MongoMappingContext;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
+import java.util.Set;
+
 /**
  * Created by alexey on 11.03.17.
  */
@@ -17,6 +19,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @EnableMongoRepositories(basePackages = "com.provectus.taxmanagement.repository")
 @ComponentScan(basePackages = {"com.provectus.taxmanagement.service"})
 public class TestTaxManagementConfiguration {
+
     @Bean
     public MongoOperations mongoTemplate() {
         MongoClient mongoClient = new MongoClient();
@@ -26,9 +29,10 @@ public class TestTaxManagementConfiguration {
     }
 
     private void dropCollections(MongoTemplate mongoTemplate) {
-        mongoTemplate.dropCollection("employees");
-        mongoTemplate.dropCollection("taxRecords");
-        mongoTemplate.dropCollection("quarters");
+        Set<String> collectionNames = mongoTemplate.getCollectionNames();
+        for (String name : collectionNames) {
+            mongoTemplate.dropCollection(name);
+        }
     }
 
     @Bean
