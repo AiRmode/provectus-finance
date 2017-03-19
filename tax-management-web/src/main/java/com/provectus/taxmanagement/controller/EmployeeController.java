@@ -1,14 +1,13 @@
 package com.provectus.taxmanagement.controller;
 
 import com.provectus.taxmanagement.entity.Employee;
+import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -21,17 +20,25 @@ public class EmployeeController {
     @Autowired
     private EmployeeService employeeService;
 
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     /**
      * get employee by fist name, second name or last name
      * method GET
      *
-     * @param firstName
-     * @param secondName
-     * @param lastName
+     * @param name
      * @return
      */
-    public List<Employee> findByAnyName(String firstName, String secondName, String lastName) {
-        return new ArrayList<>();
+    @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
+    public List<Employee> findByAnyName(@PathVariable String name) {
+        List<Employee> foundRecords = employeeRepository.findByFirstNameLikeIgnoreCase(name);
+        foundRecords.addAll(employeeRepository.findByLastNameLikeIgnoreCase(name));
+        foundRecords.addAll(employeeRepository.findBySecondNameLikeIgnoreCase(name));
+
+        HashSet<Employee> uniqEmployees = new HashSet<>();
+        uniqEmployees.addAll(foundRecords);
+        return new ArrayList<>(uniqEmployees);
     }
 
     /**
@@ -55,8 +62,9 @@ public class EmployeeController {
      * @param employee
      * @return
      */
-    public Employee create(Employee employee) {
-        return employee;
+    @RequestMapping(value = "/", method = RequestMethod.POST)
+    public Employee create(@RequestBody Employee employee) {
+        return employeeService.save(employee);
     }
 
     /**

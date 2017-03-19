@@ -16,7 +16,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 @Configuration
 @EnableMongoRepositories(basePackages = "com.provectus.taxmanagement.repository")
 @ComponentScan(basePackages = {"com.provectus.taxmanagement.service"})
-public class TestApplicationConfiguration {
+public class TestTaxManagementConfiguration {
     @Bean
     public MongoOperations mongoTemplate() {
         MongoClient mongoClient = new MongoClient();
