@@ -2,6 +2,7 @@ package com.provectus.taxmanagement.configuration;
 
 import com.mongodb.MongoClient;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.MongoTemplate;
@@ -14,7 +15,8 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
  */
 @Configuration
 @EnableMongoRepositories(basePackages = "com.provectus.taxmanagement.repository")
-public class ApplicationConfiguration {
+@ComponentScan(basePackages = {"com.provectus.taxmanagement.service"})
+public class TaxManagementConfiguration {
 
     @Bean
     public MongoOperations mongoTemplate() {
