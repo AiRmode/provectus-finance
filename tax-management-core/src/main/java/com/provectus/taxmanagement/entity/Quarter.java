@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  * Created by alexey on 12.03.17.
  */
 @Document(collection = "quarters")
-public class Quarter {
+public class Quarter implements Serializable {
     @Id
     private ObjectId id;
     private QuarterDefinition quarterDefinition;
