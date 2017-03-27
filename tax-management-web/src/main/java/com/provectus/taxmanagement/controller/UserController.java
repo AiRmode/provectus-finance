@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping(value = "/createSession", method = RequestMethod.GET)
+    @RequestMapping(value = "/createSession/{login}&{password}", method = RequestMethod.GET)
     public String createSession(@PathVariable String login, @PathVariable String password) {
         return "valid_session_token";
     }
