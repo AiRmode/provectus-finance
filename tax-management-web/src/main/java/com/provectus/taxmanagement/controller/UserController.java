@@ -1,9 +1,6 @@
 package com.provectus.taxmanagement.controller;
 
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by alexey on 26.03.17.
@@ -12,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
-    @RequestMapping(value = "/createSession/{login}&{password}", method = RequestMethod.GET)
-    public String createSession(@PathVariable String login, @PathVariable String password) {
+    @RequestMapping(value = "/createSession", method = RequestMethod.GET)
+    public String createSession(@RequestParam String login, @RequestParam String password) {
         return "valid_session_token";
     }
 
