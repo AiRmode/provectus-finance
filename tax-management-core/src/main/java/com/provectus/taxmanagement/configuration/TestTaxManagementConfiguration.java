@@ -29,8 +29,11 @@ public class TestTaxManagementConfiguration {
     }
 
     private void dropCollections(MongoTemplate mongoTemplate) {
-        Set<String> collectionNames = mongoTemplate.getCollectionNames();
+        Set<String> collectionNames = mongoTemplate.getDb().getCollectionNames();
         for (String name : collectionNames) {
+            if (name.contains("system")) {
+                continue;
+            }
             mongoTemplate.dropCollection(name);
         }
     }
