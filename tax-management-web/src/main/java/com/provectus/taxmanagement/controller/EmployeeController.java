@@ -5,6 +5,15 @@ import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.web.PagedResourcesAssembler;
+import org.springframework.hateoas.PagedResources;
+import org.springframework.hateoas.Resource;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.HashSet;
@@ -39,7 +48,14 @@ public class EmployeeController {
 
         HashSet<Employee> uniqEmployees = new HashSet<>();
         uniqEmployees.addAll(foundRecords);
+
         return uniqEmployees;
+    }
+
+    @RequestMapping(value = "/employees", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public HttpEntity<PagedResources<Resource<Employee>>> getPage(Pageable pageable, PagedResourcesAssembler<Employee> assembler) {
+        Page<Employee> employeePage = employeeRepository.findAll(pageable);
+        return new ResponseEntity<>(assembler.toResource(employeePage), HttpStatus.OK);
     }
 
     /**

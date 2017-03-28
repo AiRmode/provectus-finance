@@ -7,7 +7,11 @@ import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfigurat
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
-import org.springframework.http.ResponseEntity;
+import org.springframework.hateoas.PagedResources;
+import org.springframework.http.*;
+import org.springframework.web.util.UriComponentsBuilder;
+
+import java.util.Collection;
 
 import static org.junit.Assert.*;
 
@@ -66,5 +70,21 @@ public class EmployeeControllerTest extends ControllerTestParent {
             assertNotNull(e.getId());
             assertTrue(e.getFirstName().contains("name") || e.getLastName().contains("name") || e.getSecondName().contains("name"));
         }
+    }
+
+    @Test
+    public void testPageRequest() {
+        String path = "employee/employees";
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Accept", MediaType.APPLICATION_JSON_VALUE);
+        HttpEntity<?> entity = new HttpEntity<>(headers);
+
+        UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(base.toString() + path);
+        builder.queryParam("page", "0");
+        builder.queryParam("size", "22");
+
+        ResponseEntity<PagedResources> exchange = testRestTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity, PagedResources.class);
+        Collection content = exchange.getBody().getContent();
+        assertFalse(content.isEmpty());
     }
 }
