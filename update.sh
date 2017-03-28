@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-git pull master
+git pull
 
 mvn clean test install package
 
