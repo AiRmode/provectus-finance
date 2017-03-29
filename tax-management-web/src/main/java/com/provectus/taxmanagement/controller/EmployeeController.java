@@ -40,6 +40,7 @@ public class EmployeeController {
      * @param name
      * @return
      */
+    @CrossOrigin
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
     public Set<Employee> findByAnyName(@PathVariable String name) {
         List<Employee> foundRecords = employeeRepository.findByFirstNameLikeIgnoreCase(name);
@@ -52,6 +53,7 @@ public class EmployeeController {
         return uniqEmployees;
     }
 
+    @CrossOrigin
     @RequestMapping(value = "/employees", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public HttpEntity<PagedResources<Resource<Employee>>> getPage(Pageable pageable, PagedResourcesAssembler<Employee> assembler) {
         Page<Employee> employeePage = employeeRepository.findAll(pageable);
@@ -64,6 +66,7 @@ public class EmployeeController {
      * @param id
      * @return
      */
+    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Employee findById(@PathVariable String id) {
         return employeeRepository.findOne(new ObjectId(id));
@@ -75,6 +78,7 @@ public class EmployeeController {
      * @param employee json object from client
      * @return
      */
+    @CrossOrigin
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Employee create(@RequestBody Employee employee) {
         return employeeService.save(employee);

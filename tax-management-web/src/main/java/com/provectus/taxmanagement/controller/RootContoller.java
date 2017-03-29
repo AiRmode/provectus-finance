@@ -1,6 +1,7 @@
 package com.provectus.taxmanagement.controller;
 
 import org.springframework.boot.autoconfigure.web.ErrorController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,12 +13,13 @@ public class RootContoller implements ErrorController {
 
     private static final String PATH = "/error";
 
-
+    @CrossOrigin
     @RequestMapping(value = "/")
     public String getIndex() {
         return "Hello World";
     }
 
+    @CrossOrigin
     @RequestMapping(value = PATH)
     public String error() {
         return "My error handler";

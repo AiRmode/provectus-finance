@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/user")
 public class UserController {
 
+    @CrossOrigin
     @RequestMapping(value = "/createSession", method = RequestMethod.GET)
     public String createSession(@RequestParam String login, @RequestParam String password) {
         return "valid_session_token";
