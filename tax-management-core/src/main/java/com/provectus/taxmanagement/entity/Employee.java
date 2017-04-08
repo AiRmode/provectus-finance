@@ -44,6 +44,20 @@ public class Employee implements Serializable {
         quartersSet.add(quarter);
     }
 
+    public void addTaxRecordToQuarter(String quarterId, TaxRecord taxRecord) {
+        Quarter q = getQuarterById(quarterId);
+        q.addTaxRecord(taxRecord);
+    }
+
+    public Quarter getQuarterById(String quarterId) {
+        for (Quarter q : quartersSet) {
+            if (q.getId().equals(quarterId)) {
+                return q;
+            }
+        }
+        return null;
+    }
+
     public boolean removeQuarter(Quarter quarter) {
         return quartersSet.remove(quarter);
     }
@@ -91,12 +105,12 @@ public class Employee implements Serializable {
         return Optional.empty();
     }
 
-    public ObjectId getId() {
-        return id;
+    public String getId() {
+        return id == null ? ObjectId.get().toString() : id.toString();
     }
 
-    public void setId(ObjectId id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = new ObjectId(id);
     }
 
     public String getFirstName() {

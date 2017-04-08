@@ -40,12 +40,12 @@ public class TaxRecord implements Serializable {
         taxValue = uahVolumeForTaxInspection * taxPercentage / 100;
     }
 
-    public ObjectId getId() {
-        return id;
+    public String getId() {
+        return id == null ? ObjectId.get().toString() : id.toString();
     }
 
-    public void setId(ObjectId id) {
-        this.id = id;
+    public void setId(String id) {
+        this.id = new ObjectId(id);
     }
 
     public String getCounterpartyName() {

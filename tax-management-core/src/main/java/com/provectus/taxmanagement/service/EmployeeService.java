@@ -9,4 +9,6 @@ import com.provectus.taxmanagement.entity.Employee;
 public interface EmployeeService {
 
     Employee save(Employee employee);
+
+    Employee update(Employee source, String target);
 }

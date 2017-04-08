@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * Created by alexey on 10.03.17.
  */
-@Service
+@Service("exchangeRateUahService")
 public class ExchangeRateUahServiceImpl implements ExchangeRateService {
 
     @Override

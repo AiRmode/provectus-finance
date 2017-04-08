@@ -32,12 +32,12 @@ public class Quarter implements Serializable {
         private QuarterName quarterName;
         private Integer year;
 
-        public QuarterDefinition() {
+        public QuarterDefinition(String quarterName, Integer year) {
+            this.year = year;
+            this.quarterName = QuarterName.valueOf(quarterName.toUpperCase());
         }
 
-        public QuarterDefinition(QuarterName quarterName, Integer year) {
-            this.quarterName = quarterName;
-            this.year = year;
+        public QuarterDefinition() {
         }
 
         public QuarterName getQuarterName() {
@@ -79,6 +79,19 @@ public class Quarter implements Serializable {
     public Quarter() {
     }
 
+    public TaxRecord getTaxRecord(String id) {
+        for (TaxRecord taxRecord : taxRecords) {
+            if (taxRecord.getId().equals(id)) {
+                return taxRecord;
+            }
+        }
+        return null;
+    }
+
+    public void removeTaxRecordById(String id) {
+        taxRecords.removeIf(next -> next.getId().equals(id));
+    }
+
     public Quarter(QuarterDefinition quarterDefinition) {
         this.quarterDefinition = quarterDefinition;
     }
@@ -103,10 +116,6 @@ public class Quarter implements Serializable {
         }
     }
 
-    public ObjectId getId() {
-        return id;
-    }
-
     public Double getUahVolumeForTaxes() {
         return uahVolumeForTaxes;
     }
@@ -123,8 +132,12 @@ public class Quarter implements Serializable {
         this.taxVolume = taxVolume;
     }
 
-    public void setId(ObjectId id) {
-        this.id = id;
+    public String getId() {
+        return id == null ? ObjectId.get().toString() : id.toString();
+    }
+
+    public void setId(String id) {
+        this.id = new ObjectId(id);
     }
 
     public QuarterDefinition getQuarterDefinition() {

@@ -1,8 +1,8 @@
 package com.provectus.taxmanagement.entity;
 
-import com.provectus.taxmanagement.enums.QuarterName;
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -17,10 +17,10 @@ public class EmployeeTest {
     public void getQuarterByDefinitionTest() {
         Employee employee = createEmployee();
 
-        Optional<Quarter> quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition(QuarterName.Q3, 2016));
+        Optional<Quarter> quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition("q3", 2016));
         assertTrue(quarterByDefinition.isPresent());
 
-        quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition(QuarterName.Q4, 2016));
+        quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition("Q4", 2016));
         assertFalse(quarterByDefinition.isPresent());
 
         assertTrue(employee.getQuartersSet().size() == 1);
@@ -37,7 +37,7 @@ public class EmployeeTest {
 
     private Employee createEmployee() {
         Employee employee = new Employee();
-        Quarter quarter = new Quarter(new Quarter.QuarterDefinition(QuarterName.Q3, 2016));
+        Quarter quarter = new Quarter(new Quarter.QuarterDefinition("q3", 2016));
         TaxRecord taxRecord = new TaxRecord();
 
         taxRecord.setUahRevenue(100d);
@@ -53,4 +53,26 @@ public class EmployeeTest {
 
         return employee;
     }
+
+    @Test
+    public void addTaxRecordToQuarterTest() {
+        Employee employee = createEmployee();
+        Set<Quarter> quartersSet = employee.getQuartersSet();
+        String id = "58e54d6cca8b0bf0af1a3214";
+
+        //set id
+        quartersSet.stream().findFirst().get().setId(id);
+
+        TaxRecord taxRecord = new TaxRecord();
+        taxRecord.setUsdRevenue(10d);
+
+        employee.addTaxRecordToQuarter(id, taxRecord);
+
+        Quarter quarterById = employee.getQuarterById(id);
+        List<TaxRecord> taxRecords = quarterById.getTaxRecords();
+        assertFalse(taxRecords.isEmpty());
+        assertEquals(taxRecords.get(0).getUahRevenue(), new Double(100));
+        assertEquals(taxRecords.get(1).getUsdRevenue(), new Double(10));
+    }
+
 }

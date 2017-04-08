@@ -2,6 +2,7 @@ package com.provectus.taxmanagement.integration.repository;
 
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.integration.TestParent;
+import org.bson.types.ObjectId;
 import org.junit.Test;
 import org.springframework.dao.OptimisticLockingFailureException;
 
@@ -21,10 +22,10 @@ public class TaxRecordRepositoryTest extends TestParent {
         taxRecord.calculateVolumeForTaxInspection();
         taxRecord.calculateTaxValue();
 
-        TaxRecord savedRecord = taxRepository.save(taxRecord);
+        TaxRecord savedRecord = taxRecordRepository.save(taxRecord);
         assertNotNull(savedRecord);
 
-        TaxRecord foundRecord = taxRepository.findOne(savedRecord.getId());
+        TaxRecord foundRecord = taxRecordRepository.findOne(new ObjectId(savedRecord.getId()));
         assertEquals(taxRecord.getUsdRevenue(), foundRecord.getUsdRevenue());
         assertEquals(taxRecord.getExchRateUsdUahNBUatReceivingDate(), foundRecord.getExchRateUsdUahNBUatReceivingDate());
         assertEquals(taxRecord.getUahRevenue(), foundRecord.getUahRevenue());
@@ -39,11 +40,11 @@ public class TaxRecordRepositoryTest extends TestParent {
         taxRecord.setExchRateUsdUahNBUatReceivingDate(10d);
         taxRecord.setUahRevenue(20d);
 
-        TaxRecord savedRecord = taxRepository.save(taxRecord);
-        TaxRecord foundRecord = taxRepository.findOne(savedRecord.getId());
+        TaxRecord savedRecord = taxRecordRepository.save(taxRecord);
+        TaxRecord foundRecord = taxRecordRepository.findOne(new ObjectId(savedRecord.getId()));
 
-        taxRepository.delete(foundRecord);
-        TaxRecord deletedRecord = taxRepository.findOne(foundRecord.getId());
+        taxRecordRepository.delete(foundRecord);
+        TaxRecord deletedRecord = taxRecordRepository.findOne(new ObjectId(foundRecord.getId()));
         assertNull(deletedRecord);
     }
 
@@ -51,12 +52,12 @@ public class TaxRecordRepositoryTest extends TestParent {
     public void testOptimisticLocking() {
         TaxRecord record = new TaxRecord();
         record.setUahRevenue(100d);
-        TaxRecord savedRecord = taxRepository.save(record);
-        TaxRecord foundRecord = taxRepository.findOne(savedRecord.getId());
+        TaxRecord savedRecord = taxRecordRepository.save(record);
+        TaxRecord foundRecord = taxRecordRepository.findOne(new ObjectId(savedRecord.getId()));
 
         savedRecord.setUsdRevenue(200d);
 
-        taxRepository.save(savedRecord);
-        taxRepository.save(foundRecord);
+        taxRecordRepository.save(savedRecord);
+        taxRecordRepository.save(foundRecord);
     }
 }
