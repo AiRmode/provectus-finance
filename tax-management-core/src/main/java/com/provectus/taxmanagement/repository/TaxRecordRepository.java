@@ -7,5 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 /**
  * Created by alexey on 10.03.17.
  */
-public interface TaxRepository extends MongoRepository<TaxRecord, ObjectId> {
+public interface TaxRecordRepository extends MongoRepository<TaxRecord, ObjectId> {
+
 }

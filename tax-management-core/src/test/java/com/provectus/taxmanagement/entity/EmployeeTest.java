@@ -1,6 +1,5 @@
 package com.provectus.taxmanagement.entity;
 
-import com.provectus.taxmanagement.enums.QuarterName;
 import org.junit.Test;
 
 import java.util.Optional;
@@ -17,10 +16,10 @@ public class EmployeeTest {
     public void getQuarterByDefinitionTest() {
         Employee employee = createEmployee();
 
-        Optional<Quarter> quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition(QuarterName.Q3, 2016));
+        Optional<Quarter> quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition("q3", 2016));
         assertTrue(quarterByDefinition.isPresent());
 
-        quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition(QuarterName.Q4, 2016));
+        quarterByDefinition = employee.getQuarterByDefinition(new Quarter.QuarterDefinition("Q4", 2016));
         assertFalse(quarterByDefinition.isPresent());
 
         assertTrue(employee.getQuartersSet().size() == 1);
@@ -37,7 +36,7 @@ public class EmployeeTest {
 
     private Employee createEmployee() {
         Employee employee = new Employee();
-        Quarter quarter = new Quarter(new Quarter.QuarterDefinition(QuarterName.Q3, 2016));
+        Quarter quarter = new Quarter(new Quarter.QuarterDefinition("q3", 2016));
         TaxRecord taxRecord = new TaxRecord();
 
         taxRecord.setUahRevenue(100d);

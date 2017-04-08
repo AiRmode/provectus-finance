@@ -23,7 +23,7 @@ public class EmployeeRepositoryTest extends TestParent {
     public void testSaveEmployee() {
         Employee employee = new Employee();
         ObjectId objectId = ObjectId.get();
-        employee.setId(objectId);
+        employee.setId(objectId.toString());
         employee.setFirstName("Alex1");
         employee.setLastName("Ivanov");
         employee.setSecondName("Ivanovich");
@@ -39,7 +39,7 @@ public class EmployeeRepositoryTest extends TestParent {
     public void testUpdateEmployee() {
         Employee employee = new Employee();
         ObjectId objectId = ObjectId.get();
-        employee.setId(objectId);
+        employee.setId(objectId.toString());
         employee.setFirstName("Alex2");
         employee.setLastName("Ivanov");
         employee.setSecondName("Ivanovich");
@@ -51,7 +51,7 @@ public class EmployeeRepositoryTest extends TestParent {
         record.setLastName("Ivanov2");
         Employee updatedEmployee = employeeRepository.save(record);
 
-        Employee updatedFromDB = employeeRepository.findOne(updatedEmployee.getId());
+        Employee updatedFromDB = employeeRepository.findOne(new ObjectId(updatedEmployee.getId()));
         assertEquals(record, updatedFromDB);
         assertEquals(updatedFromDB.getVersion(), new Long(1));
     }
@@ -84,13 +84,13 @@ public class EmployeeRepositoryTest extends TestParent {
         taxRecord.calculateVolumeForTaxInspection();
         taxRecord.calculateTaxValue();
 
-        TaxRecord savedTaxRecord = taxRepository.save(taxRecord);
+        TaxRecord savedTaxRecord = taxRecordRepository.save(taxRecord);
         quarter.addTaxRecord(savedTaxRecord);
         Quarter savedQaurterRecord = quarterRepository.save(quarter);
         employee.addQuarter(savedQaurterRecord);
         Employee savedEmployeeRecord = employeeRepository.save(employee);
 
-        Employee foundRecord = employeeRepository.findOne(savedEmployeeRecord.getId());
+        Employee foundRecord = employeeRepository.findOne(new ObjectId(savedEmployeeRecord.getId()));
         Set<Quarter> quartersSet = foundRecord.getQuartersSet();
         assertFalse(quartersSet.isEmpty());
         assertFalse(new ArrayList<>(quartersSet).get(0).getTaxRecords().isEmpty());
@@ -103,7 +103,7 @@ public class EmployeeRepositoryTest extends TestParent {
         employee.setFirstName("Vasya");
 
         Employee savedRecord = employeeRepository.save(employee);
-        Employee foundRecord = employeeRepository.findOne(savedRecord.getId());
+        Employee foundRecord = employeeRepository.findOne(new ObjectId(savedRecord.getId()));
 
         savedRecord.setLastName("Ivanov");
         foundRecord.setLastName("Petrov");

@@ -12,6 +12,8 @@ import org.springframework.http.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -86,5 +88,38 @@ public class EmployeeControllerTest extends ControllerTestParent {
         ResponseEntity<PagedResources> exchange = testRestTemplate.exchange(builder.build().encode().toUri(), HttpMethod.GET, entity, PagedResources.class);
         Collection content = exchange.getBody().getContent();
         assertFalse(content.isEmpty());
+    }
+
+    @Test
+    public void testUpdate() {
+        Employee employee = new Employee();
+        employee.setFirstName("Terminator");
+        employee.setSecondName("T1000");
+        employee.setLastName("Good guy");
+
+        String path = "employee/";
+
+        ResponseEntity<Employee> response = testRestTemplate.postForEntity(base.toString() + path, employee, Employee.class);
+        Employee responseEmployee = response.getBody();
+        assertTrue(responseEmployee.getFirstName().equals("Terminator"));
+        assertTrue(responseEmployee.getSecondName().equals("T1000"));
+
+        //update employee object and put it into the system
+        path = "employee/{id}";
+        String url = base.toString() + path;
+        employee.setLastName("I'll be back");
+
+        Map<String, String> params = new HashMap<>();
+        params.put("id", responseEmployee.getId());
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+
+        HttpEntity<Employee> entity = new HttpEntity<Employee>(employee, headers);
+
+        ResponseEntity<Employee> responseEntity = testRestTemplate.exchange(url, HttpMethod.PUT, entity, Employee.class, params);
+
+        Employee body = responseEntity.getBody();
+        assertEquals(body.getLastName(), "I'll be back");
     }
 }

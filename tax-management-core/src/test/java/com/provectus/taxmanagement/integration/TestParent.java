@@ -3,7 +3,7 @@ package com.provectus.taxmanagement.integration;
 import com.provectus.taxmanagement.configuration.TestTaxManagementConfiguration;
 import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.repository.QuarterRepository;
-import com.provectus.taxmanagement.repository.TaxRepository;
+import com.provectus.taxmanagement.repository.TaxRecordRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +24,8 @@ public abstract class TestParent {
     protected EmployeeRepository employeeRepository;
 
     @Autowired
-    @Qualifier("taxRepository")
-    protected TaxRepository taxRepository;
+    @Qualifier("taxRecordRepository")
+    protected TaxRecordRepository taxRecordRepository;
 
     @Autowired
     @Qualifier("quarterRepository")

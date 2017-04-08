@@ -5,6 +5,7 @@ import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.enums.QuarterName;
 import com.provectus.taxmanagement.integration.TestParent;
+import org.bson.types.ObjectId;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class EmployeeServiceImplTest extends TestParent {
         Employee saved = employeeService.save(employee);
         assertNotNull(saved);
 
-        Employee found = employeeRepository.findOne(saved.getId());
+        Employee found = employeeRepository.findOne(new ObjectId(saved.getId()));
         assertNotNull(found);
         Set<Quarter> quartersSet = found.getQuartersSet();
         assertFalse(quartersSet.isEmpty());

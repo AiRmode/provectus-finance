@@ -1,14 +1,14 @@
 package com.provectus.taxmanagement.service.impl;
 
 import com.provectus.taxmanagement.entity.Employee;
-import com.provectus.taxmanagement.service.TaxService;
+import com.provectus.taxmanagement.service.TaxCalculationService;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by alexey on 10.03.17.
  */
 @Service
-public class TaxServiceImpl implements TaxService {
+public class TaxCalculationServiceImpl implements TaxCalculationService {
     @Override
     public Double calcTaxSum(Employee employee, String period) {
         return null;

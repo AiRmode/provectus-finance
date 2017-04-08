@@ -23,6 +23,7 @@ import java.util.Set;
 /**
  * Created by alexey on 14.03.17.
  */
+@CrossOrigin
 @RestController
 @RequestMapping(value = "/employee")
 public class EmployeeController {
@@ -40,7 +41,6 @@ public class EmployeeController {
      * @param name
      * @return
      */
-    @CrossOrigin
     @RequestMapping(value = "/search/{name}", method = RequestMethod.GET)
     public Set<Employee> findByAnyName(@PathVariable String name) {
         List<Employee> foundRecords = employeeRepository.findByFirstNameLikeIgnoreCase(name);
@@ -53,7 +53,6 @@ public class EmployeeController {
         return uniqEmployees;
     }
 
-    @CrossOrigin
     @RequestMapping(value = "/employees", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public HttpEntity<PagedResources<Resource<Employee>>> getPage(Pageable pageable, PagedResourcesAssembler<Employee> assembler) {
         Page<Employee> employeePage = employeeRepository.findAll(pageable);
@@ -66,7 +65,6 @@ public class EmployeeController {
      * @param id
      * @return
      */
-    @CrossOrigin
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Employee findById(@PathVariable String id) {
         return employeeRepository.findOne(new ObjectId(id));
@@ -78,26 +76,30 @@ public class EmployeeController {
      * @param employee json object from client
      * @return
      */
-    @CrossOrigin
     @RequestMapping(value = "/", method = RequestMethod.POST)
     public Employee create(@RequestBody Employee employee) {
         return employeeService.save(employee);
     }
 
     /**
-     * method PUT
+     *
+     * @param employee
+     * @param id
+     * @return
+     */
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT)
+    public Employee update(@RequestBody Employee employee, @PathVariable String id) {
+        return employeeService.update(employee, id);
+    }
+
+    /**
      *
      * @param id
      * @return
      */
-    public boolean update(String id) {
-        return false;
-    }
-
-    /**
-     * @param id
-     */
-    public void delete(String id) {
-
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public String delete(@PathVariable String id) {
+        employeeRepository.delete(new ObjectId(id));
+        return "deleted";
     }
 }
