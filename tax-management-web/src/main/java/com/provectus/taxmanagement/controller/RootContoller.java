@@ -8,18 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by alexey on 19.03.17.
  */
+@CrossOrigin
 @RestController
 public class RootContoller implements ErrorController {
 
     private static final String PATH = "/error";
 
-    @CrossOrigin
     @RequestMapping(value = "/")
     public String getIndex() {
         return "Hello World";
     }
 
-    @CrossOrigin
     @RequestMapping(value = PATH)
     public String error() {
         return "My error handler";

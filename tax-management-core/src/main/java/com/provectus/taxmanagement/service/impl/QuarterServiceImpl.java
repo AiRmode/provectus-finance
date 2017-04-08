@@ -7,6 +7,7 @@ import com.provectus.taxmanagement.repository.QuarterRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import com.provectus.taxmanagement.service.QuarterService;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -16,13 +17,14 @@ import org.springframework.stereotype.Service;
 @Service("quarterService")
 public class QuarterServiceImpl implements QuarterService {
 
-    @Qualifier("employeeRepository")
+    @Autowired
     private EmployeeRepository employeeRepository;
 
+    @Autowired
     @Qualifier("employeeService")
     private EmployeeService employeeService;
 
-    @Qualifier("quarterRepository")
+    @Autowired
     private QuarterRepository quarterRepository;
 
     @Override

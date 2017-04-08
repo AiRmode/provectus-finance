@@ -5,6 +5,7 @@ import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PagedResourcesAssembler;
@@ -29,6 +30,7 @@ import java.util.Set;
 public class EmployeeController {
 
     @Autowired
+    @Qualifier("employeeService")
     private EmployeeService employeeService;
 
     @Autowired
@@ -82,7 +84,6 @@ public class EmployeeController {
     }
 
     /**
-     *
      * @param employee
      * @param id
      * @return
@@ -93,7 +94,6 @@ public class EmployeeController {
     }
 
     /**
-     *
      * @param id
      * @return
      */
