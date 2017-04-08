@@ -2,6 +2,7 @@ package com.provectus.taxmanagement.entity;
 
 import org.junit.Test;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -52,4 +53,26 @@ public class EmployeeTest {
 
         return employee;
     }
+
+    @Test
+    public void addTaxRecordToQuarterTest() {
+        Employee employee = createEmployee();
+        Set<Quarter> quartersSet = employee.getQuartersSet();
+        String id = "58e54d6cca8b0bf0af1a3214";
+
+        //set id
+        quartersSet.stream().findFirst().get().setId(id);
+
+        TaxRecord taxRecord = new TaxRecord();
+        taxRecord.setUsdRevenue(10d);
+
+        employee.addTaxRecordToQuarter(id, taxRecord);
+
+        Quarter quarterById = employee.getQuarterById(id);
+        List<TaxRecord> taxRecords = quarterById.getTaxRecords();
+        assertFalse(taxRecords.isEmpty());
+        assertEquals(taxRecords.get(0).getUahRevenue(), new Double(100));
+        assertEquals(taxRecords.get(1).getUsdRevenue(), new Double(10));
+    }
+
 }

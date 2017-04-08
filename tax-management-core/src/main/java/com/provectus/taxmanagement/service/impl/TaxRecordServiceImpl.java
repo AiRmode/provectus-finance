@@ -7,21 +7,18 @@ import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import com.provectus.taxmanagement.service.TaxRecordService;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 /**
  * Created by alexey on 06.04.17.
  */
-@Service
+@Service("taxRecordService")
 public class TaxRecordServiceImpl implements TaxRecordService {
 
-    @Autowired
     @Qualifier("employeeService")
     private EmployeeService employeeService;
 
-    @Autowired
     @Qualifier("employeeRepository")
     private EmployeeRepository employeeRepository;
 

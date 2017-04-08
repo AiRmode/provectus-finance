@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by alexey on 10.03.17.
  */
-@Service
+@Service("taxCalculationService")
 public class TaxCalculationServiceImpl implements TaxCalculationService {
     @Override
     public Double calcTaxSum(Employee employee, String period) {

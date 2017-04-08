@@ -8,7 +8,6 @@ import com.provectus.taxmanagement.repository.QuarterRepository;
 import com.provectus.taxmanagement.repository.TaxRecordRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import org.bson.types.ObjectId;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -18,17 +17,14 @@ import java.util.Set;
 /**
  * Created by alexey on 10.03.17.
  */
-@Service
+@Service("employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
-    @Autowired
     @Qualifier("employeeRepository")
     private EmployeeRepository employeeRepository;
 
-    @Autowired
     @Qualifier("taxRecordRepository")
     private TaxRecordRepository taxRecordRepository;
 
-    @Autowired
     @Qualifier("quarterRepository")
     private QuarterRepository quarterRepository;
 

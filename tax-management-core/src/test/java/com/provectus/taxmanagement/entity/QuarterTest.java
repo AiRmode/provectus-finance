@@ -42,7 +42,7 @@ public class QuarterTest {
     @Test
     public void testFindByQuarters() {
         Quarter quarter = new Quarter();
-        Quarter.QuarterDefinition quarterDefinition = new Quarter.QuarterDefinition(QuarterName.Q3, 2016);
+        Quarter.QuarterDefinition quarterDefinition = new Quarter.QuarterDefinition("q3", 2016);
         quarter.setQuarterDefinition(quarterDefinition);
 
         Employee employee = new Employee();

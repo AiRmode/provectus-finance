@@ -3,7 +3,6 @@ package com.provectus.taxmanagement.integration.repository;
 import com.provectus.taxmanagement.entity.Employee;
 import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
-import com.provectus.taxmanagement.enums.QuarterName;
 import com.provectus.taxmanagement.integration.TestParent;
 import org.bson.types.ObjectId;
 import org.junit.Test;
@@ -75,7 +74,7 @@ public class EmployeeRepositoryTest extends TestParent {
         employee.setSecondName("Ivanovich");
 
         Quarter quarter = new Quarter();
-        quarter.setQuarterDefinition(new Quarter.QuarterDefinition(QuarterName.Q4, 2016));
+        quarter.setQuarterDefinition(new Quarter.QuarterDefinition("Q4", 2016));
 
         TaxRecord taxRecord = new TaxRecord();
         taxRecord.setUsdRevenue(100d);
