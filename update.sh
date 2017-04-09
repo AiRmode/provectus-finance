@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-server_port="--server.port=8082"
+server_port="8082"
 
 git pull
 git submodule update --recursive --remote
