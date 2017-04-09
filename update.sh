@@ -1,8 +1,19 @@
 #!/usr/bin/env bash
+server_port="--server.port=8082"
+
 git pull
+git submodule update --recursive --remote
+
+cp -r -f provectus-finance-ui/tax-management-ui/provectus-finance-ui/web/ tax-management-spring-boot/src/main/resources
 
 mvn clean test install package
 
 cd tax-management-spring-boot/target
 
-nohup java -jar tax-management-spring-boot-1.0-SNAPSHOT.jar --server.port=8082 &
+pid=$(ps aux | grep $server_port | awk 'FNR == 1{print $2}')
+
+echo "tomcat PID: $pid"
+
+kill -9 $pid
+
+nohup java -jar tax-management-spring-boot-1.0-SNAPSHOT.jar --server.port=$server_port &
