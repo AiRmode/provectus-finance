@@ -18,4 +18,4 @@ pid=$(ps aux | grep $server_port | awk 'FNR == 2{print $2}')
 echo "killing tomcat PID: $pid"
 kill -9 $pid
 
-nohup java -jar tax-management-spring-boot-1.0-SNAPSHOT.jar --server.port=$server_port &
+nohup java -jar tax-management-spring-boot/target/tax-management-spring-boot-1.0-SNAPSHOT.jar --server.port=$server_port &
