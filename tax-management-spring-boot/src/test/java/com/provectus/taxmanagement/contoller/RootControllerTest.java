@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration;
 import org.springframework.boot.autoconfigure.mongo.embedded.EmbeddedMongoAutoConfiguration;
 import org.springframework.http.ResponseEntity;
 
-import static org.hamcrest.core.IsEqual.equalTo;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 /**
  * Created by alexey on 19.03.17.
@@ -19,6 +19,7 @@ public class RootControllerTest extends ControllerTestParent {
     @Test
     public void test() {
         ResponseEntity<String> response = testRestTemplate.getForEntity(base.toString(), String.class);
-        assertThat(response.getBody(), equalTo("Hello World"));
+        assertEquals(response.getStatusCode().value(), 200);
+        assertFalse(response.getBody().isEmpty());
     }
 }
