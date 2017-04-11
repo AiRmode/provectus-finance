@@ -14,7 +14,7 @@ pid=$(ps aux | grep $server_port | awk 'FNR == 1{print $2}')
 echo "killing tomcat PID: $pid"
 kill -9 $pid
 
-pid=$(ps aux | grep $server_port | awk 'FNR == 1{print $1}')
+pid=$(ps aux | grep $server_port | awk 'FNR == 2{print $2}')
 echo "killing tomcat PID: $pid"
 kill -9 $pid
 
