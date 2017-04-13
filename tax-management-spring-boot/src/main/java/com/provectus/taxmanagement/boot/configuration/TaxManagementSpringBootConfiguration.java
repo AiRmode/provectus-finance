@@ -21,6 +21,8 @@ public class TaxManagementSpringBootConfiguration {
         return new WebMvcConfigurerAdapter() {
             @Override
             public void addResourceHandlers (ResourceHandlerRegistry registry) {
+                registry.addResourceHandler("/font/**").
+                        addResourceLocations("classpath:/font/");
                 registry.addResourceHandler("/build/**").
                         addResourceLocations("classpath:/build/");
                 registry.addResourceHandler("/index.*/**").
