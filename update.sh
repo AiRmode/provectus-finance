@@ -3,8 +3,8 @@ server_port="8082"
 
 git pull
 git submodule update --recursive --remote
-git submodule update --init
-git submodule foreach git reset --hard
+#git submodule update --init
+#git submodule foreach git reset --hard
 
 cp -r -f provectus-finance-ui/tax-management-ui/provectus-finance-ui/web/ tax-management-spring-boot/src/main/resources
 
