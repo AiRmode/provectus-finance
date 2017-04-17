@@ -170,7 +170,7 @@ public class Employee implements Serializable {
     }
 
     public Set<Quarter> getQuartersSet() {
-        return quartersSet;
+        return new TreeSet<>(quartersSet);
     }
 
     public void setQuartersSet(Set<Quarter> quartersSet) {
