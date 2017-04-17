@@ -18,7 +18,7 @@ public class BankGovUaRatesProviderTest {
     @Test
     public void test() throws ParseException, MalformedURLException, URISyntaxException {
         ExchangeRatesProviderFactory factory = ExchangeRatesProviderFactory.createExchangeProvider("");
-        ExchangeRate rates = factory.getRates("USD", "20170304");
+        ExchangeRate rates = factory.getRate("USD", "20170304");
         assertNotNull(rates);
         assertEquals(rates.getCurrencyType(), "USD");
         assertEquals(rates.getExchangeRateDate(), new SimpleDateFormat(BankGovUaUahExchangeRatesProvider.BANK_GOV_UA_DATE_FORMAT).parse("04.03.2017"));

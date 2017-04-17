@@ -37,7 +37,7 @@ public class BankGovUaUahExchangeRatesProvider extends ExchangeRatesProviderFact
     }
 
     @Override
-    public ExchangeRate getRates(String currencyCode, String date) throws URISyntaxException, MalformedURLException, ParseException {
+    public ExchangeRate getRate(String currencyCode, String date) throws URISyntaxException, MalformedURLException, ParseException {
         RestTemplate restTemplate = new RestTemplate();
         URIBuilder uriBuilder;
         uriBuilder = new URIBuilder(BASE_URL);

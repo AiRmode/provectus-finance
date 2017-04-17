@@ -19,6 +19,6 @@ public abstract class ExchangeRatesProviderFactory {
 
     public abstract List<ExchangeRate> getAllRates(String date);
 
-    public abstract ExchangeRate getRates(String currencyCode, String datePattern) throws URISyntaxException, MalformedURLException, ParseException;
+    public abstract ExchangeRate getRate(String currencyCode, String date) throws URISyntaxException, MalformedURLException, ParseException;
 
 }
