@@ -35,7 +35,7 @@ public class Employee implements Serializable {
     private Integer taxPercentage = TAX_PERCENTAGE_EMPLOYEE_3th_CATEGORY;//default current value
     private List<String> kved;
     @DBRef
-    private Set<Quarter> quartersSet = new HashSet<>();
+    private Set<Quarter> quartersSet = new TreeSet<>();
 
     private Date createdDate;
     private Date modifiedDate;

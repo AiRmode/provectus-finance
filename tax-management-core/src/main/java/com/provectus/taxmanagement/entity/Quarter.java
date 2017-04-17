@@ -15,7 +15,7 @@ import java.util.List;
  * Created by alexey on 12.03.17.
  */
 @Document(collection = "quarters")
-public class Quarter implements Serializable {
+public class Quarter implements Serializable, Comparable<Quarter> {
     @Id
     private ObjectId id;
     private QuarterDefinition quarterDefinition;
@@ -28,7 +28,12 @@ public class Quarter implements Serializable {
     private Date createDate;
     private Date modifiedDate;
 
-    public static class QuarterDefinition {
+    @Override
+    public int compareTo(Quarter o) {
+        return quarterDefinition.compareTo(o.getQuarterDefinition());
+    }
+
+    public static class QuarterDefinition implements Comparable<QuarterDefinition> {
         private QuarterName quarterName;
         private Integer year;
 
@@ -73,6 +78,13 @@ public class Quarter implements Serializable {
             int result = quarterName != null ? quarterName.hashCode() : 0;
             result = 31 * result + (year != null ? year.hashCode() : 0);
             return result;
+        }
+
+        @Override
+        public int compareTo(QuarterDefinition o) {
+            if (year.compareTo(o.getYear()) == 0) {
+                return o.getQuarterName().compareTo(quarterName);
+            } else return o.getYear().compareTo(year);
         }
     }
 
