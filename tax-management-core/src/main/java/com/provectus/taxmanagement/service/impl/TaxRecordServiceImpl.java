@@ -50,5 +50,7 @@ public class TaxRecordServiceImpl implements TaxRecordService {
     public void delete(String employeeId, String quarterId, String taxRecordId) {
         Employee one = employeeRepository.findOne(new ObjectId(employeeId));
         Quarter quarterById = one.getQuarterById(quarterId);
+        quarterById.removeTaxRecordById(taxRecordId);
+        employeeRepository.save(one);
     }
 }
