@@ -4,6 +4,8 @@ import com.provectus.taxmanagement.entity.Employee;
 import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.repository.EmployeeRepository;
+import com.provectus.taxmanagement.repository.QuarterRepository;
+import com.provectus.taxmanagement.repository.TaxRecordRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
 import com.provectus.taxmanagement.service.TaxRecordService;
 import org.bson.types.ObjectId;
@@ -20,6 +22,14 @@ public class TaxRecordServiceImpl implements TaxRecordService {
     @Autowired
     @Qualifier("employeeService")
     private EmployeeService employeeService;
+
+    @Autowired
+    @Qualifier("quarterRepository")
+    private QuarterRepository quarterRepository;
+
+    @Autowired
+    @Qualifier("taxRecordRepository")
+    private TaxRecordRepository taxRecordRepository;
 
     @Autowired
     private EmployeeRepository employeeRepository;
@@ -51,6 +61,8 @@ public class TaxRecordServiceImpl implements TaxRecordService {
         Employee one = employeeRepository.findOne(new ObjectId(employeeId));
         Quarter quarterById = one.getQuarterById(quarterId);
         quarterById.removeTaxRecordById(taxRecordId);
+        taxRecordRepository.delete(new ObjectId(taxRecordId));
+        quarterRepository.save(quarterById);
         employeeRepository.save(one);
     }
 }
