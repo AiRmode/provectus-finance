@@ -25,6 +25,8 @@ public class TaxManagementSpringBootConfiguration {
                         addResourceLocations("classpath:/font/");
                 registry.addResourceHandler("/build/**").
                         addResourceLocations("classpath:/build/");
+                registry.addResourceHandler("/img/**").
+                        addResourceLocations("classpath:/img/");
                 registry.addResourceHandler("/index.*/**").
                         addResourceLocations("classpath:/");
             }
