@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.net.URL;
 
 /**
- * Created by unconsionable on 10.09.2017.
+ * Created by agricenko on 10.09.2017.
  */
 public class PaymentUtilTest {
 
