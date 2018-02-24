@@ -20,7 +20,7 @@ import java.util.List;
  * Created by alexey on 12.03.17.
  */
 public class BankGovUaUahExchangeRatesProvider extends ExchangeRatesProviderFactory {
-    public static final String BASE_URL = "http://bank.gov.ua/NBUStatService/v1/statdirectory/exchange";
+    public static final String BASE_URL = "https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange";
     public static final String BANK_GOV_UA_DATE_FORMAT = "dd.MM.yyyy";
     public static final String DUMMY = "dummy";
     public static final String VALCODE_PARAMETER_NAME = "valcode";
