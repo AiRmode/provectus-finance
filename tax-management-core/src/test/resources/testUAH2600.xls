@@ -1,0 +1,618 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="application/vnd.ms-excel; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=100">
+      <title>Выписки</title><style type="text/css">
+                    @page
+                    {margin:.98in .79in .98in .79in;
+                    mso-header-margin:.5in;
+                    mso-footer-margin:.5in;}
+                    tr
+                    {mso-height-source:auto;}
+                    col
+                    {mso-width-source:auto;}
+                    br
+                    {mso-data-placement:same-cell;}
+                    .style0
+                    {mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    white-space:nowrap;
+                    mso-rotate:0;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:204;
+                    border:none;
+                    mso-protection:locked visible;
+                    mso-style-name:Обычный;
+                    mso-style-id:0;}
+                    td
+                    {mso-style-parent:style0;
+                    padding-top:1px;
+                    padding-right:1px;
+                    padding-left:1px;
+                    mso-ignore:padding;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:204;
+                    mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    border:none;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    mso-protection:locked visible;
+                    white-space:nowrap;
+                    mso-rotate:0;}
+                    .xl24
+                    {mso-style-parent:style0;
+                    text-align:center;}
+                    .xl25
+                    {mso-style-parent:style0;
+                    font-size:8.0pt;
+                    font-weight:700;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    vertical-align:middle;
+                    border-top:0.5pt solid windowtext;
+                    border-right:none;
+                    border-bottom:0.5pt solid windowtext;
+                    border-left:0.5pt solid windowtext;
+                    background:silver;
+                    mso-pattern:auto none;
+                    white-space:normal;}
+                    .xl26
+                    {mso-style-parent:style0;
+                    font-size:8.0pt;
+                    font-weight:700;
+                    width: 800px;
+                    mso-width-source:auto none;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    vertical-align:middle;
+                    border-top:0.5pt solid windowtext;
+                    border-right:none;
+                    border-bottom:0.5pt solid windowtext;
+                    border-left:0.5pt solid windowtext;
+                    background:silver;
+                    mso-pattern:auto none;
+                    white-space:normal;}
+                    .xl27
+                    {mso-style-parent:style0;
+                    font-size:8.0pt;
+                    font-weight:700;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    vertical-align:middle;
+                    border:0.5pt solid windowtext;
+                    background:silver;
+                    mso-pattern:auto none;
+                    white-space:normal;}
+                    .xl28
+                    {mso-style-parent:style0;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    white-space:normal;}
+                    .xl29
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:left;
+                    white-space:normal;
+                    mso-number-format:"\@";}
+                    .xl30
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:left;
+                    white-space:normal;
+                    mso-number-format:"Short Date";}
+                    .xl31
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:left;
+                    white-space:normal;
+                    mso-number-format:"hh\:mm\:ss";}
+                    .xl32
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    font-weight:700;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    mso-number-format:Fixed;
+                    text-align:right;
+                    white-space:normal;}
+                </style></head>
+   <body>
+      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+         <tr class="xl24">
+            <th class="xl29" width="1500" style="font-size:3.6mm; font-weight:700; text-align: center; border-bottom:1.0pt solid windowtext;" colspan="11">Выписка по счету № 26001054315812 "Шевчук О.А. ФОП" c 01.01.2017 по 31.03.2017.</th>
+         </tr>
+         <tr class="xl24">
+            <th class="xl28" width="1500" height="10" colspan="11">
+               &nbsp;
+               
+            </th>
+         </tr>
+      </table>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+         <tr class="xl24">
+            <th class="xl25">№</th>
+            <th class="xl25">Дата проводки</th>
+            <th class="xl25">Время проводки</th>
+            <th class="xl25" colspan="2" nowrap>Сумма</th>
+            <th class="xl25">Валюта</th>
+            <th class="xl26">Назначение платежа</th>
+            <th class="xl25">ЕГРПОУ</th>
+            <th class="xl25">Наименование контрагента</th>
+            <th class="xl25">Счет контрагента</th>
+            <th class="xl25">МФО контрагента</th>
+            <th class="xl27">Референс</th>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">123</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">13:20:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-85000.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH3VO00SRGT.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331L0A57</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:29:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-11844.80</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Перевод личных средств</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Тр.рах.за опер. з платiжними картками</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29244824500014</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0331L0A57.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331L0A6X</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:29:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-29.61</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">удержание комиссии P1398999 ID1007059747</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Дох.по зач-ю SWIFT-платежей физ.лиц</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61108909448361</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0331L0A6X.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331DW3OM</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11:47:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">27945.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Гривнi вiд вiльного продажу 1035.00 USD по курсу 27.0</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BLDZH0331DW3OM.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">122</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:46:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-10000.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0331L0JR3.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331DW36K</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:45:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10768.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Гривнi вiд вiльного продажу 400.00 USD по курсу 26.92</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BLDZH0331DW36K.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331DW2U6</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:35:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">71741.80</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Обов`язковий продаж валюти по курсу 26.9200000. Сума 2665.00 USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BLDZH0331DW2U6.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">121</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:04:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-550.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH3BO00AMEG.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">120</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">03.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:39:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-39000.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH33O006BS2.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0303DTRV5</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">03.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:27:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38745.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Гривнi вiд вiльного продажу 1435.00 USD по курсу 27.0</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BO49H0303DTRV5.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">AS72s57wap</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">01.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14:16:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-50.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Комiсiя за обслуговування рахунку лютий 2017р. згiдно договору банкiвського рахунку
+               вiд 19.06.2014, без ПДВ
+            </td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">КОМИС. ЗА ОБСЛ. ТЕК. СЧ. БЕЗ НДС(UAH)</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61107918100312</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">TZ00H0301B7HHD.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">118</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">01.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:02:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-59500.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH31O004YKV.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0301L07IU</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">01.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11:08:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-11924.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Перевод личных средств</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Тр.рах.за опер. з платiжними картками</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29244824500014</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0301L07IU.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0301L07JL</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">01.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11:08:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-29.81</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">удержание комиссии P1268155 ID1007059747</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Дох.по зач-ю SWIFT-платежей физ.лиц</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61108909448361</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0301L07JL.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0301DTSBK</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">01.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:37:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">72221.50</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Обов`язковий продаж валюти по курсу 27.1000000. Сума 2665.00 USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BLDZH0301DTSBK.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">117</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">21.02.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">16:53:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-900.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0221L3B88.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">115</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">08.02.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">17:16:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-12143.35</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">*;101; 3244720275;ЄП за 4 квартал 2016 р ; ; ;</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38016923</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">УК у м.Одесi (18050400)Київському р-нi</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31416699700005</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">828011</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0208L2YIS.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">0208L2YISY</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">08.02.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">17:16:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-3.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Комiсiя за виконання платежiв в нацiональнiй валютi, згiдно з вiдкритою офертою банку
+               N б/н вiд 19.06.2014 та тарифiв банку, без ПДВ.
+            </td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">КОМИССИЯ ЗА ДЕБЕТОВАНИЕ СЧЕТА БЕЗ НДС(</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61106918400314</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0208L2YIS.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">AS71v6vdxp</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">01.02.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">13:24:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-50.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Комiсiя за обслуговування рахунку сiчень 2017р. згiдно договору банкiвського рахунку
+               вiд 19.06.2014, без ПДВ
+            </td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">КОМИС. ЗА ОБСЛ. ТЕК. СЧ. БЕЗ НДС(UAH)</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61107918100312</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">TZ00H0201BMQYW.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">114</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:32:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-21500.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0131L1RGF.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">0131L1RGFA</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:32:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-53.75</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Комiсiя за поповнення карток для виплат та нецiльовi платежi</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">НЕЦЕЛЕВОЕ ПОПОЛНЕНИЕ КАРТ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61104918103334</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0131L1RGF.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0131DRNM8</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:16:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">30262.40</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Гривнi вiд вiльного продажу 1120.00 USD по курсу 27.02</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BLDZH0131DRNM8.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0127L06NJ</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">27.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11:31:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-11946.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Перевод личных средств</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Тр.рах.за опер. з платiжними картками</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29244824500014</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0127L06NJ.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0127L06OU</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">27.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11:31:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-29.87</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">удержание комиссии P1144149 ID1007059747</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Дох.по зач-ю SWIFT-платежей физ.лиц</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61108909448361</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0127L06OU.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">113</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">27.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:48:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-40000.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0127L0MBO.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">0127L0MBOA</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">27.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:48:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-100.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Комiсiя за поповнення карток для виплат та нецiльовi платежi</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">НЕЦЕЛЕВОЕ ПОПОЛНЕНИЕ КАРТ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61104918103334</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0127L0MBO.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0127DRGJ0</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">27.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:35:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">56472.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Обов`язковий продаж валюти по курсу 27.1500000. Сума 2080.00 USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH-USD ПОКУПКА-ПРОДАЖА ВАЛЮТЫ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">38019870209121</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">BLDZH0127DRGJ0.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">112</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">06.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">09:40:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-350.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">перевод личных средств Шевчук Алексей Анатольевич 3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Целевые зачисления по Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29243057080891</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0106L0ACS.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">0106L0ACSA</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">06.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">09:40:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-0.88</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Комiсiя за поповнення карток для виплат та нецiльовi платежi</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">НЕЦЕЛЕВОЕ ПОПОЛНЕНИЕ КАРТ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">61104918103334</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0106L0ACS.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">PT024B1YO6</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">04.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">13:50:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-0.20</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">UAH</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Погашення вiдсоткiв згiдно договору банкiвського обслуговування</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">26078054314868</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">PT02H0104B1YO6.</td>
+         </tr>
+         <tr class="xl24">
+            <th class="xl25">№</th>
+            <th class="xl25">Дата проводки</th>
+            <th class="xl25">Время проводки</th>
+            <th class="xl25" colspan="2" nowrap>Сумма</th>
+            <th class="xl25">Валюта</th>
+            <th class="xl26">Назначение платежа</th>
+            <th class="xl25">ЕГРПОУ</th>
+            <th class="xl25">Наименование контрагента</th>
+            <th class="xl25">Счет контрагента</th>
+            <th class="xl25">МФО контрагента</th>
+            <th class="xl27">Референс</th>
+         </tr>
+      </table>
+   </body>
+</html>

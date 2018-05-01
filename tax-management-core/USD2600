@@ -1,0 +1,290 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="application/vnd.ms-excel; charset=UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=100">
+      <title>Выписки</title><style type="text/css">
+                    @page
+                    {margin:.98in .79in .98in .79in;
+                    mso-header-margin:.5in;
+                    mso-footer-margin:.5in;}
+                    tr
+                    {mso-height-source:auto;}
+                    col
+                    {mso-width-source:auto;}
+                    br
+                    {mso-data-placement:same-cell;}
+                    .style0
+                    {mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    white-space:nowrap;
+                    mso-rotate:0;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:204;
+                    border:none;
+                    mso-protection:locked visible;
+                    mso-style-name:Обычный;
+                    mso-style-id:0;}
+                    td
+                    {mso-style-parent:style0;
+                    padding-top:1px;
+                    padding-right:1px;
+                    padding-left:1px;
+                    mso-ignore:padding;
+                    color:windowtext;
+                    font-size:10.0pt;
+                    font-weight:400;
+                    font-style:normal;
+                    text-decoration:none;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:204;
+                    mso-number-format:General;
+                    text-align:general;
+                    vertical-align:bottom;
+                    border:none;
+                    mso-background-source:auto;
+                    mso-pattern:auto;
+                    mso-protection:locked visible;
+                    white-space:nowrap;
+                    mso-rotate:0;}
+                    .xl24
+                    {mso-style-parent:style0;
+                    text-align:center;}
+                    .xl25
+                    {mso-style-parent:style0;
+                    font-size:8.0pt;
+                    font-weight:700;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    vertical-align:middle;
+                    border-top:0.5pt solid windowtext;
+                    border-right:none;
+                    border-bottom:0.5pt solid windowtext;
+                    border-left:0.5pt solid windowtext;
+                    background:silver;
+                    mso-pattern:auto none;
+                    white-space:normal;}
+                    .xl26
+                    {mso-style-parent:style0;
+                    font-size:8.0pt;
+                    font-weight:700;
+                    width: 800px;
+                    mso-width-source:auto none;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    vertical-align:middle;
+                    border-top:0.5pt solid windowtext;
+                    border-right:none;
+                    border-bottom:0.5pt solid windowtext;
+                    border-left:0.5pt solid windowtext;
+                    background:silver;
+                    mso-pattern:auto none;
+                    white-space:normal;}
+                    .xl27
+                    {mso-style-parent:style0;
+                    font-size:8.0pt;
+                    font-weight:700;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    vertical-align:middle;
+                    border:0.5pt solid windowtext;
+                    background:silver;
+                    mso-pattern:auto none;
+                    white-space:normal;}
+                    .xl28
+                    {mso-style-parent:style0;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:center;
+                    white-space:normal;}
+                    .xl29
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:left;
+                    white-space:normal;
+                    mso-number-format:"\@";}
+                    .xl30
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:left;
+                    white-space:normal;
+                    mso-number-format:"Short Date";}
+                    .xl31
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    text-align:left;
+                    white-space:normal;
+                    mso-number-format:"hh\:mm\:ss";}
+                    .xl32
+                    {mso-style-parent:style0;
+                    font-size:9.0pt;
+                    font-family:'Arial Unicode MS', Georgia, Arial;
+                    font-weight:700;
+                    mso-generic-font-family:auto;
+                    mso-font-charset:0;
+                    mso-number-format:Fixed;
+                    text-align:right;
+                    white-space:normal;}
+                </style></head>
+   <body>
+      <table cellspacing="0" cellpadding="0" border="0" width="100%">
+         <tr class="xl24">
+            <th class="xl29" width="1500" style="font-size:3.6mm; font-weight:700; text-align: center; border-bottom:1.0pt solid windowtext;" colspan="11">Выписка по счету № 26005054309578 "Шевчук О.А. ФОП" c 01.01.2017 по 31.03.2017.</th>
+         </tr>
+         <tr class="xl24">
+            <th class="xl28" width="1500" height="10" colspan="11">
+               &nbsp;
+               
+            </th>
+         </tr>
+      </table>
+      <table border="0" cellpadding="0" cellspacing="0" width="100%">
+         <tr class="xl24">
+            <th class="xl25">№</th>
+            <th class="xl25">Дата проводки</th>
+            <th class="xl25">Время проводки</th>
+            <th class="xl25" colspan="2" nowrap>Сумма</th>
+            <th class="xl25">Валюта</th>
+            <th class="xl26">Назначение платежа</th>
+            <th class="xl25">ЕГРПОУ</th>
+            <th class="xl25">Наименование контрагента</th>
+            <th class="xl25">Счет контрагента</th>
+            <th class="xl25">МФО контрагента</th>
+            <th class="xl27">Референс</th>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331D73W3</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">11:46:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-1035.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Списание средств на осуществление валютообменой операции согласно заявки №JBKLH03310Z6OS</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Продажа USD клиента</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29008828900113</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0331D73W3.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0331D73JE</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">10:42:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-400.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Списание средств на осуществление валютообменой операции согласно заявки №JBKLH03310Z6BC</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Продажа USD клиента</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29008828900113</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0331D73JE.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0330L0R3P</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">30.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">16:56:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">1435.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Consulting Agreement# 101/CA at 20/06/2014</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">26039054304981</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0330L0R3P.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">119</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">02.03.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">15:03:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-1435.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">согласно заявке  JBKLH03020YK8O  на обмен валюты</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Продажа USD клиента</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29008828900113</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0302L1W8O.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0228L017G</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">28.02.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">08:46:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">1435.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Consulting Agreement# 101/CA at 20/06/2014</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">26039054304981</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0228L017G.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0131D5X3O</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">31.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">12:07:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">-1120.00</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Списание средств на осуществление валютообменой операции согласно заявки №JBKLH01310XXGZ</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">14360570</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Продажа USD клиента</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">29008828900113</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">305299</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JBKLH0131D5X3O.</td>
+         </tr>
+         <tr class="xl24">
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">H0126L0QWS</td>
+            <td class="xl30" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">26.01.2017</td>
+            <td class="xl31" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">17:10:00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">1120.00</td>
+            <td class="xl32" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;"></td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">USD</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Consulting Agreement# 101/CA at 20/06/2014</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">3244720275</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">Шевчук О.А. ФОП</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">26039054304981</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">328704</td>
+            <td class="xl29" style="border-left:0.5pt solid windowtext;border-right:0.5pt solid windowtext;border-bottom:0.5pt solid windowtext;">JXAUH0126L0QWS.</td>
+         </tr>
+         <tr class="xl24">
+            <th class="xl25">№</th>
+            <th class="xl25">Дата проводки</th>
+            <th class="xl25">Время проводки</th>
+            <th class="xl25" colspan="2" nowrap>Сумма</th>
+            <th class="xl25">Валюта</th>
+            <th class="xl26">Назначение платежа</th>
+            <th class="xl25">ЕГРПОУ</th>
+            <th class="xl25">Наименование контрагента</th>
+            <th class="xl25">Счет контрагента</th>
+            <th class="xl25">МФО контрагента</th>
+            <th class="xl27">Референс</th>
+         </tr>
+      </table>
+   </body>
+</html>
