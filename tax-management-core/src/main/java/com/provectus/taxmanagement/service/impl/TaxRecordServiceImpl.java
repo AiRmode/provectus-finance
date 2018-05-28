@@ -1,12 +1,11 @@
 package com.provectus.taxmanagement.service.impl;
 
-import com.provectus.taxmanagement.entity.Employee;
 import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.repository.EmployeeRepository;
-import com.provectus.taxmanagement.repository.QuarterRepository;
 import com.provectus.taxmanagement.repository.TaxRecordRepository;
 import com.provectus.taxmanagement.service.EmployeeService;
+import com.provectus.taxmanagement.service.QuarterService;
 import com.provectus.taxmanagement.service.TaxRecordService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,45 +23,43 @@ public class TaxRecordServiceImpl implements TaxRecordService {
     private EmployeeService employeeService;
 
     @Autowired
-    @Qualifier("quarterRepository")
-    private QuarterRepository quarterRepository;
+    private EmployeeRepository employeeRepository;
 
     @Autowired
     @Qualifier("taxRecordRepository")
     private TaxRecordRepository taxRecordRepository;
 
     @Autowired
-    private EmployeeRepository employeeRepository;
-
-    @Override
-    public TaxRecord addTaxRecord(String employeeId, String quarterId, TaxRecord taxRecord) {
-        Employee one = employeeRepository.findOne(new ObjectId(employeeId));
-        one.addTaxRecordToQuarter(quarterId, taxRecord);
-        employeeService.save(one);
-        return taxRecord;
-    }
+    private QuarterService quarterService;
 
     @Override
     public TaxRecord updateTaxRecord(String employeeId, String quarterId, TaxRecord taxRecord) {
-        Employee one = employeeRepository.findOne(new ObjectId(employeeId));
-        Quarter quarterById = one.getQuarterById(quarterId);
-        TaxRecord tax = quarterById.getTaxRecord(taxRecord.getId());
+        TaxRecord tax = taxRecordRepository.findOne(new ObjectId(taxRecord.getId()));
         tax.setTaxPercentage(taxRecord.getTaxPercentage());
         tax.setCounterpartyName(taxRecord.getCounterpartyName());
         tax.setReceivingDate(taxRecord.getReceivingDate());
         tax.setUahRevenue(taxRecord.getUahRevenue());
         tax.setUsdRevenue(taxRecord.getUsdRevenue());
-        employeeService.save(one);
+        taxRecordRepository.save(tax);
         return tax;
     }
 
     @Override
     public void delete(String employeeId, String quarterId, String taxRecordId) {
-        Employee one = employeeRepository.findOne(new ObjectId(employeeId));
-        Quarter quarterById = one.getQuarterById(quarterId);
-        quarterById.removeTaxRecordById(taxRecordId);
+        quarterService.removeTaxRecordById(quarterId, taxRecordId);
         taxRecordRepository.delete(new ObjectId(taxRecordId));
-        quarterRepository.save(quarterById);
-        employeeRepository.save(one);
+    }
+
+    @Override
+    public TaxRecord save(TaxRecord taxRecord) {
+        return taxRecordRepository.save(taxRecord);
+    }
+
+    @Override
+    public TaxRecord addTaxRecord(String employeeId, String quarterId, TaxRecord taxRecord) {
+        Quarter quarterById = quarterService.getQuarterById(employeeId, quarterId);
+        TaxRecord savedRecord = taxRecordRepository.save(taxRecord);
+        Quarter quarter = quarterService.addTaxRecordToQuarter(quarterById, savedRecord);
+        return savedRecord;
     }
 }

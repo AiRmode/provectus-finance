@@ -22,5 +22,6 @@
         <module>tax-management-core</module>
         <module>tax-management-spring-boot</module>
         <module>provectus-finance-parent</module>
+        <module>tax-management-import</module>
     </modules>
 </project>

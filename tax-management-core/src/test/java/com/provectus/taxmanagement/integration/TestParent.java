@@ -5,8 +5,7 @@ import com.provectus.taxmanagement.repository.EmployeeRepository;
 import com.provectus.taxmanagement.repository.ExchangeRatesUahRepository;
 import com.provectus.taxmanagement.repository.QuarterRepository;
 import com.provectus.taxmanagement.repository.TaxRecordRepository;
-import com.provectus.taxmanagement.service.EmployeeService;
-import com.provectus.taxmanagement.service.ExchangeRateService;
+import com.provectus.taxmanagement.service.*;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -43,4 +42,14 @@ public abstract class TestParent {
     @Autowired
     @Qualifier("exchangeRatesUahRepository")
     protected ExchangeRatesUahRepository exchangeRatesUahRepository;
+
+    @Autowired
+    @Qualifier("importService")
+    protected ImportService importService;
+
+    @Autowired
+    protected TaxCalculationService taxCalculationService;
+
+    @Autowired
+    protected QuarterService quarterService;
 }

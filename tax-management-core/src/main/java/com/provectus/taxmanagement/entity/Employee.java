@@ -40,71 +40,6 @@ public class Employee implements Serializable {
     private Date createdDate;
     private Date modifiedDate;
 
-    public void addQuarter(Quarter quarter) {
-        quartersSet.add(quarter);
-    }
-
-    public void addTaxRecordToQuarter(String quarterId, TaxRecord taxRecord) {
-        Quarter q = getQuarterById(quarterId);
-        q.addTaxRecord(taxRecord);
-    }
-
-    public Quarter getQuarterById(String quarterId) {
-        for (Quarter q : quartersSet) {
-            if (q.getId().equals(quarterId)) {
-                return q;
-            }
-        }
-        return null;
-    }
-
-    public boolean removeQuarter(Quarter quarter) {
-        return quartersSet.remove(quarter);
-    }
-
-    public Double getTotalUahVolumeForTaxesByYear(Integer year) {
-        Double sum = 0d;
-        Set<Quarter> allQuartersByYear = getAllQuartersByYear(year);
-        for (Quarter quarter : allQuartersByYear) {
-            List<TaxRecord> taxRecords = quarter.getTaxRecords();
-            for (TaxRecord taxRecord : taxRecords) {
-                sum += taxRecord.getUahVolumeForTaxInspection();
-            }
-        }
-        return sum;
-    }
-
-    public Double getTotalTaxesVolumeByYear(Integer year) {
-        Double sum = 0d;
-        Set<Quarter> allQuartersByYear = getAllQuartersByYear(year);
-        for (Quarter quarter : allQuartersByYear) {
-            List<TaxRecord> taxRecords = quarter.getTaxRecords();
-            for (TaxRecord taxRecord : taxRecords) {
-                sum += taxRecord.getTaxValue();
-            }
-        }
-        return sum;
-    }
-
-    public Set<Quarter> getAllQuartersByYear(Integer year) {
-        Set<Quarter> quarters = new HashSet<>();
-        for (Quarter quarter : quartersSet) {
-            if (quarter.getQuarterDefinition().getYear().equals(year)) {
-                quarters.add(quarter);
-            }
-        }
-        return quarters;
-    }
-
-    public Optional<Quarter> getQuarterByDefinition(Quarter.QuarterDefinition quarterTitle) {
-        for (Quarter quarter : quartersSet) {
-            if (quarter.getQuarterDefinition().equals(quarterTitle)) {
-                return Optional.of(quarter);
-            }
-        }
-        return Optional.empty();
-    }
-
     public String getId() {
         return id == null ? ObjectId.get().toString() : id.toString();
     }
@@ -170,7 +105,7 @@ public class Employee implements Serializable {
     }
 
     public Set<Quarter> getQuartersSet() {
-        return new TreeSet<>(quartersSet);
+        return quartersSet;
     }
 
     public void setQuartersSet(Set<Quarter> quartersSet) {

@@ -14,7 +14,6 @@ import java.util.Date;
  */
 @Document(collection = "taxRecords")
 public class TaxRecord implements Serializable {
-    public static final double VALUE_NOT_SET_PLACEHOLDER = -1d;
     @Id
     private ObjectId id;
     @Version
@@ -25,20 +24,10 @@ public class TaxRecord implements Serializable {
     private Double uahRevenue = 0d;
     private Double usdRevenue = 0d;
     private Double exchRateUsdUahNBUatReceivingDate = 0d;
-    private Double uahVolumeForTaxInspection = VALUE_NOT_SET_PLACEHOLDER;//usdRevenue * exchRateUsdUahNBUatReceivingDate + uahRevenue
-    private Double taxValue = VALUE_NOT_SET_PLACEHOLDER;//uahVolumeForTaxInspection * Employee.taxPercentage or uahVolumeForTaxInspection * this.taxPercentage
     private Integer taxPercentage = Employee.TAX_PERCENTAGE_EMPLOYEE_3th_CATEGORY;//default current value
 
     private Date createdDate;
     private Date modifiedDate;
-
-    public void calculateVolumeForTaxInspection() {
-        uahVolumeForTaxInspection = usdRevenue * exchRateUsdUahNBUatReceivingDate + uahRevenue;
-    }
-
-    public void calculateTaxValue() {
-        taxValue = uahVolumeForTaxInspection * taxPercentage / 100;
-    }
 
     public String getId() {
         return id == null ? ObjectId.get().toString() : id.toString();
@@ -88,22 +77,6 @@ public class TaxRecord implements Serializable {
         this.exchRateUsdUahNBUatReceivingDate = exchRateUsdUahNBUatReceivingDate;
     }
 
-    public Double getUahVolumeForTaxInspection() {
-        return uahVolumeForTaxInspection;
-    }
-
-    public void setUahVolumeForTaxInspection(Double uahVolumeForTaxInspection) {
-        this.uahVolumeForTaxInspection = uahVolumeForTaxInspection;
-    }
-
-    public Double getTaxValue() {
-        return taxValue;
-    }
-
-    public void setTaxValue(Double taxValue) {
-        this.taxValue = taxValue;
-    }
-
     public Integer getTaxPercentage() {
         return taxPercentage;
     }
@@ -137,9 +110,6 @@ public class TaxRecord implements Serializable {
         if (usdRevenue != null ? !usdRevenue.equals(taxRecord.usdRevenue) : taxRecord.usdRevenue != null) return false;
         if (exchRateUsdUahNBUatReceivingDate != null ? !exchRateUsdUahNBUatReceivingDate.equals(taxRecord.exchRateUsdUahNBUatReceivingDate) : taxRecord.exchRateUsdUahNBUatReceivingDate != null)
             return false;
-        if (uahVolumeForTaxInspection != null ? !uahVolumeForTaxInspection.equals(taxRecord.uahVolumeForTaxInspection) : taxRecord.uahVolumeForTaxInspection != null)
-            return false;
-        if (taxValue != null ? !taxValue.equals(taxRecord.taxValue) : taxRecord.taxValue != null) return false;
         if (taxPercentage != null ? !taxPercentage.equals(taxRecord.taxPercentage) : taxRecord.taxPercentage != null)
             return false;
         if (createdDate != null ? !createdDate.equals(taxRecord.createdDate) : taxRecord.createdDate != null)
@@ -157,8 +127,6 @@ public class TaxRecord implements Serializable {
         result = 31 * result + (uahRevenue != null ? uahRevenue.hashCode() : 0);
         result = 31 * result + (usdRevenue != null ? usdRevenue.hashCode() : 0);
         result = 31 * result + (exchRateUsdUahNBUatReceivingDate != null ? exchRateUsdUahNBUatReceivingDate.hashCode() : 0);
-        result = 31 * result + (uahVolumeForTaxInspection != null ? uahVolumeForTaxInspection.hashCode() : 0);
-        result = 31 * result + (taxValue != null ? taxValue.hashCode() : 0);
         result = 31 * result + (taxPercentage != null ? taxPercentage.hashCode() : 0);
         result = 31 * result + (createdDate != null ? createdDate.hashCode() : 0);
         result = 31 * result + (modifiedDate != null ? modifiedDate.hashCode() : 0);

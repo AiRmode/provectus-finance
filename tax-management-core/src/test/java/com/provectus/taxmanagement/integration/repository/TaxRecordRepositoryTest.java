@@ -19,8 +19,6 @@ public class TaxRecordRepositoryTest extends TestParent {
         taxRecord.setUsdRevenue(1d);
         taxRecord.setExchRateUsdUahNBUatReceivingDate(10d);
         taxRecord.setUahRevenue(20d);
-        taxRecord.calculateVolumeForTaxInspection();
-        taxRecord.calculateTaxValue();
 
         TaxRecord savedRecord = taxRecordRepository.save(taxRecord);
         assertNotNull(savedRecord);
@@ -29,8 +27,6 @@ public class TaxRecordRepositoryTest extends TestParent {
         assertEquals(taxRecord.getUsdRevenue(), foundRecord.getUsdRevenue());
         assertEquals(taxRecord.getExchRateUsdUahNBUatReceivingDate(), foundRecord.getExchRateUsdUahNBUatReceivingDate());
         assertEquals(taxRecord.getUahRevenue(), foundRecord.getUahRevenue());
-        assertEquals(taxRecord.getUahVolumeForTaxInspection(), foundRecord.getUahVolumeForTaxInspection());
-        assertEquals(taxRecord.getTaxValue(), foundRecord.getTaxValue());
     }
 
     @Test

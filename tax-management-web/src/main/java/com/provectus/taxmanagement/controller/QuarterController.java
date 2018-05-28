@@ -73,7 +73,7 @@ public class QuarterController {
     public Quarter findByQuarterDefinition(@PathVariable Integer year, @PathVariable String quarterName, @PathVariable String employeeId) {
         Employee one = employeeRepository.findOne(new ObjectId(employeeId));
         Quarter.QuarterDefinition quarterDefinition = new Quarter.QuarterDefinition(quarterName, year);
-        Optional<Quarter> quarter = one.getQuarterByDefinition(quarterDefinition);
+        Optional<Quarter> quarter = quarterService.getQuarterByDefinition(one, quarterDefinition);
         return quarter.isPresent() ? quarter.get() : null;
     }
 

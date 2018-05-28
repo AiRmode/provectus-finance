@@ -72,6 +72,7 @@ public class EmployeeRepositoryTest extends TestParent {
         employee.setFirstName("Alex");
         employee.setLastName("Ivanov");
         employee.setSecondName("Ivanovich");
+        employee = employeeRepository.save(employee);
 
         Quarter quarter = new Quarter();
         quarter.setQuarterDefinition(new Quarter.QuarterDefinition("Q4", 2016));
@@ -80,20 +81,15 @@ public class EmployeeRepositoryTest extends TestParent {
         taxRecord.setUsdRevenue(100d);
         taxRecord.setUahRevenue(50d);
         taxRecord.setExchRateUsdUahNBUatReceivingDate(5d);
-        taxRecord.calculateVolumeForTaxInspection();
-        taxRecord.calculateTaxValue();
 
-        TaxRecord savedTaxRecord = taxRecordRepository.save(taxRecord);
-        quarter.addTaxRecord(savedTaxRecord);
-        Quarter savedQaurterRecord = quarterRepository.save(quarter);
-        employee.addQuarter(savedQaurterRecord);
-        Employee savedEmployeeRecord = employeeRepository.save(employee);
+        quarter.addTaxRecord(taxRecord);
+        quarterService.addQuarter(employee.getId(), quarter);
 
-        Employee foundRecord = employeeRepository.findOne(new ObjectId(savedEmployeeRecord.getId()));
+        Employee foundRecord = employeeRepository.findOne(new ObjectId(employee.getId()));
         Set<Quarter> quartersSet = foundRecord.getQuartersSet();
         assertFalse(quartersSet.isEmpty());
         assertFalse(new ArrayList<>(quartersSet).get(0).getTaxRecords().isEmpty());
-        assertNotNull(savedEmployeeRecord);
+        assertNotNull(employee);
     }
 
     @Test(expected = OptimisticLockingFailureException.class)

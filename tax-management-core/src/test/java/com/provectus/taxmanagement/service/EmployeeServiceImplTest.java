@@ -25,6 +25,7 @@ public class EmployeeServiceImplTest extends TestParent {
         employee.setFirstName("Sanya");
         employee.setLastName("Petrov");
         employee.setSecondName("Nikolaevich");
+        employeeRepository.save(employee);
 
         Quarter quarter = new Quarter();
         Quarter.QuarterDefinition definition = new Quarter.QuarterDefinition();
@@ -36,13 +37,11 @@ public class EmployeeServiceImplTest extends TestParent {
         taxRecord.setUsdRevenue(100d);
         taxRecord.setUahRevenue(50d);
         taxRecord.setExchRateUsdUahNBUatReceivingDate(5d);
-        taxRecord.calculateVolumeForTaxInspection();
-        taxRecord.calculateTaxValue();
 
         quarter.addTaxRecord(taxRecord);
-        employee.addQuarter(quarter);
 
         Employee saved = employeeService.save(employee);
+        quarterService.addQuarter(employee.getId(), quarter);
         assertNotNull(saved);
 
         Employee found = employeeRepository.findOne(new ObjectId(saved.getId()));

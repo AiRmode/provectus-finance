@@ -8,4 +8,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * Created by alexey on 12.03.17.
  */
 public interface QuarterRepository extends MongoRepository<Quarter, ObjectId> {
+    Quarter findByQuarterDefinition(Quarter.QuarterDefinition definition);
 }
