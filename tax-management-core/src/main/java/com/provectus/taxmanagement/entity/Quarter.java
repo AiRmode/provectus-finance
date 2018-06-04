@@ -6,6 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -36,6 +37,21 @@ public class Quarter implements Serializable, Comparable<Quarter> {
 
     public void addTaxRecords(List<TaxRecord> taxRecords) {
         this.taxRecords.addAll(taxRecords);
+    }
+
+    /**
+     * Just a workaround. There is an issue with sending multipart request with a payload
+     */
+    public static class QuarterDefinitionDTO extends QuarterDefinition {
+        private MultipartFile file;
+
+        public MultipartFile getFile() {
+            return file;
+        }
+
+        public void setFile(MultipartFile file) {
+            this.file = file;
+        }
     }
 
     public static class QuarterDefinition implements Comparable<QuarterDefinition> {

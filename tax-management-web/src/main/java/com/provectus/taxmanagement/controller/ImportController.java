@@ -7,7 +7,6 @@ import org.apache.tika.exception.TikaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -33,11 +32,12 @@ public class ImportController {
     private StorageService storageService;
 
     @RequestMapping(value = "/importTaxReport/{employeeId}", method = RequestMethod.POST)
-    public Set<Quarter> importTaxReport(@RequestParam("file") MultipartFile file, @PathVariable String employeeId) throws IOException {
-        File savedFile = storageService.storeFile(file);
+    @ResponseBody
+    public Set<Quarter> importTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionDTO, @PathVariable String employeeId) throws IOException {
+        File savedFile = storageService.storeFile(quarterDefinitionDTO.getFile());
 
         try {
-            return importService.importTaxRecordFile(savedFile, employeeId);
+            return importService.importTaxRecordFile(savedFile, employeeId, new Quarter.QuarterDefinition(quarterDefinitionDTO.getQuarterName().toString(), quarterDefinitionDTO.getYear()));
         } catch (TikaException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();
         }

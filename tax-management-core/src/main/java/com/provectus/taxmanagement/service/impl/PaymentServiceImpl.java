@@ -1,4 +1,4 @@
-package com.provectus.taxmanagement.util;
+package com.provectus.taxmanagement.service.impl;
 
 import com.provectus.taxmanagement.entity.TaxRecord;
 import org.jsoup.Jsoup;
@@ -7,28 +7,27 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.IllegalFormatException;
 import java.util.List;
 
 /**
  * Created by agricenko on 10.09.2017.
  */
-@Component
-public class PaymentUtil {
+@Service("paymentService")
+public class PaymentServiceImpl implements com.provectus.taxmanagement.service.PaymentService {
 
     public static final String DATE_FORMAT = "dd.MM.YYYY HH:mm:ss";
 
-    private static final Logger logger = LoggerFactory.getLogger(PaymentUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(PaymentServiceImpl.class);
 
+    @Override
     public List<TaxRecord> parseDocument(File document) throws IOException, ParseException {
         try {
             Document doc = Jsoup.parse(document, "UTF-8");

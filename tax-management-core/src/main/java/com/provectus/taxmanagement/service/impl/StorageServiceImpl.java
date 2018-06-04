@@ -27,7 +27,7 @@ public class StorageServiceImpl implements StorageService {
     public File storeFile(MultipartFile file) throws IOException {
         File f = createDailyFolder();
         byte[] bytes = file.getBytes();
-        Path path = Paths.get(f.getAbsolutePath(), file.getOriginalFilename());
+        Path path = Paths.get(f.getAbsolutePath(), System.nanoTime() + file.getOriginalFilename());
         Files.write(path, bytes);
         return path.toFile();
     }
