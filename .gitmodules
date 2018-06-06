@@ -1,0 +1,3 @@
+[submodule "provectus-finance-ui/provectus-finance"]
+	path = provectus-finance-ui/provectus-finance
+	url = https://github.com/zakharovmikhail/provectus-finance
