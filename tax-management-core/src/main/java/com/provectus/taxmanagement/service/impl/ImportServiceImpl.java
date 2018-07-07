@@ -55,7 +55,7 @@ public class ImportServiceImpl implements ImportService {
             quarters.add(q);
 
             quarters.forEach(quarter -> {
-                quarterService.addQuarter(employeeId, q);
+                quarterService.addQuarter(employeeId, quarter);
             });
 
             return quarters;

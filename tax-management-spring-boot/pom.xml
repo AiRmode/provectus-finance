@@ -64,7 +64,7 @@
                         <configuration>
                             <tasks>
                                 <copy todir="src/main/resources">
-                                    <fileset dir="../provectus-finance-ui/tax-management-ui/provectus-finance-ui/web"/>
+                                    <fileset dir="../provectus-finance/web"/>
                                 </copy>
                             </tasks>
                         </configuration>

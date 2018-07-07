@@ -6,7 +6,7 @@ git submodule update --recursive --remote
 #git submodule update --init
 #git submodule foreach git reset --hard
 
-cp -r -f provectus-finance-ui/tax-management-ui/provectus-finance-ui/web/ tax-management-spring-boot/src/main/resources
+cp -r -f provectus-finance/web/ tax-management-spring-boot/src/main/resources
 
 mvn clean test package install -DskipTests=true
 
