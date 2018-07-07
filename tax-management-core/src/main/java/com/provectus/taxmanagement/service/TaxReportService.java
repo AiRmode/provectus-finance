@@ -7,6 +7,6 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
 
-public interface PaymentService {
+public interface TaxReportService {
     List<TaxRecord> parseDocument(File document) throws IOException, ParseException;
 }

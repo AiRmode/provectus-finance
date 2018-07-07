@@ -3,7 +3,8 @@ package com.provectus.taxmanagement.service.impl;
 import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.service.ImportService;
-import com.provectus.taxmanagement.service.PaymentService;
+import com.provectus.taxmanagement.service.QuarterService;
+import com.provectus.taxmanagement.service.TaxReportService;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -37,18 +38,26 @@ import java.util.TreeSet;
 public class ImportServiceImpl implements ImportService {
 
     @Autowired
-    @Qualifier("paymentService")
-    private PaymentService paymentService;
+    @Qualifier("taxReportService")
+    private TaxReportService taxReportService;
+
+    @Autowired
+    private QuarterService quarterService;
 
     @Override
     public Set<Quarter> importTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
         List<TaxRecord> taxRecords = null;
         try {
-            taxRecords = paymentService.parseDocument(file);
+            taxRecords = taxReportService.parseDocument(file);
             Quarter q = new Quarter(quarterDefinition);
             q.addTaxRecords(taxRecords);
             TreeSet<Quarter> quarters = new TreeSet<>();
             quarters.add(q);
+
+            quarters.forEach(quarter -> {
+                quarterService.addQuarter(employeeId, q);
+            });
+
             return quarters;
         } catch (ParseException e) {
             e.printStackTrace();

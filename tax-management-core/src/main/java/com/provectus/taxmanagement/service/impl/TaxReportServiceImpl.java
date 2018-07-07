@@ -1,6 +1,7 @@
 package com.provectus.taxmanagement.service.impl;
 
 import com.provectus.taxmanagement.entity.TaxRecord;
+import com.provectus.taxmanagement.service.TaxReportService;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,12 +21,12 @@ import java.util.List;
 /**
  * Created by agricenko on 10.09.2017.
  */
-@Service("paymentService")
-public class PaymentServiceImpl implements com.provectus.taxmanagement.service.PaymentService {
+@Service("taxReportService")
+public class TaxReportServiceImpl implements TaxReportService {
 
     public static final String DATE_FORMAT = "dd.MM.YYYY HH:mm:ss";
 
-    private static final Logger logger = LoggerFactory.getLogger(PaymentServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(TaxReportServiceImpl.class);
 
     @Override
     public List<TaxRecord> parseDocument(File document) throws IOException, ParseException {

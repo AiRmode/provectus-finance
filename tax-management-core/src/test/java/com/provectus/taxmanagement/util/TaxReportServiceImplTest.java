@@ -1,7 +1,7 @@
 package com.provectus.taxmanagement.util;
 
 import com.provectus.taxmanagement.entity.TaxRecord;
-import com.provectus.taxmanagement.service.impl.PaymentServiceImpl;
+import com.provectus.taxmanagement.service.impl.TaxReportServiceImpl;
 import org.junit.Test;
 
 import java.io.File;
@@ -18,14 +18,14 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by agricenko on 10.09.2017.
  */
-public class PaymentServiceImplTest {
+public class TaxReportServiceImplTest {
 
     URL resource = Thread.currentThread().getContextClassLoader().getResource("statements.xls");
 
     public List<TaxRecord> getStubRecords() throws ParseException {
         List<TaxRecord> taxRecords = new ArrayList<>();
 
-        DateFormat dateFormat = new SimpleDateFormat(PaymentServiceImpl.DATE_FORMAT);
+        DateFormat dateFormat = new SimpleDateFormat(TaxReportServiceImpl.DATE_FORMAT);
 
         TaxRecord taxRecord = new TaxRecord();
         taxRecord.setUahRevenue(-30.0);
@@ -57,8 +57,8 @@ public class PaymentServiceImplTest {
 
     @Test
     public void testParseDocument() throws IOException, ParseException {
-        PaymentServiceImpl paymentServiceImpl = new PaymentServiceImpl();
-        List<TaxRecord> taxRecords = paymentServiceImpl.parseDocument(new File(resource.getPath()));
+        TaxReportServiceImpl taxReportService = new TaxReportServiceImpl();
+        List<TaxRecord> taxRecords = taxReportService.parseDocument(new File(resource.getPath()));
         assertNotNull(taxRecords);
 //        assertEquals(taxRecords, getStubRecords());
     }

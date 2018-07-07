@@ -3,6 +3,7 @@ package com.provectus.taxmanagement.controller;
 import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.service.ImportService;
 import com.provectus.taxmanagement.service.StorageService;
+import org.apache.commons.io.FileUtils;
 import org.apache.tika.exception.TikaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -31,13 +32,15 @@ public class ImportController {
     @Qualifier("storageService")
     private StorageService storageService;
 
-    @RequestMapping(value = "/importTaxReport/{employeeId}", method = RequestMethod.POST)
+    @RequestMapping(value = "/convertTaxReport/{employeeId}", method = RequestMethod.POST)
     @ResponseBody
-    public Set<Quarter> importTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionDTO, @PathVariable String employeeId) throws IOException {
+    public Set<Quarter> convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionDTO, @PathVariable String employeeId) throws IOException {
         File savedFile = storageService.storeFile(quarterDefinitionDTO.getFile());
 
         try {
-            return importService.importTaxRecordFile(savedFile, employeeId, new Quarter.QuarterDefinition(quarterDefinitionDTO.getQuarterName().toString(), quarterDefinitionDTO.getYear()));
+            Set<Quarter> quarters = importService.importTaxRecordFile(savedFile, employeeId, new Quarter.QuarterDefinition(quarterDefinitionDTO.getQuarterName().toString(), quarterDefinitionDTO.getYear()));
+            FileUtils.forceDelete(savedFile);
+            return quarters;
         } catch (TikaException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();
         }
