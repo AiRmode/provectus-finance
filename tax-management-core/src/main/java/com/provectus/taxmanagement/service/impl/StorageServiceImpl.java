@@ -1,12 +1,15 @@
 package com.provectus.taxmanagement.service.impl;
 
 import com.provectus.taxmanagement.service.StorageService;
+import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.PostConstruct;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -30,6 +33,19 @@ public class StorageServiceImpl implements StorageService {
         Path path = Paths.get(f.getAbsolutePath(), System.nanoTime() + file.getOriginalFilename());
         Files.write(path, bytes);
         return path.toFile();
+    }
+
+    @Override
+    public File saveWorkbook(Workbook wb, String fileName) {
+        File f = createDailyFolder();
+        File file = new File(f, System.nanoTime() + fileName);
+
+        try (OutputStream fileOut = new FileOutputStream(file)) {
+            wb.write(fileOut);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return file;
     }
 
     private File createDailyFolder() {

@@ -52,4 +52,8 @@ public abstract class TestParent {
 
     @Autowired
     protected QuarterService quarterService;
+
+    @Autowired
+    protected ReportService reportService;
+
 }

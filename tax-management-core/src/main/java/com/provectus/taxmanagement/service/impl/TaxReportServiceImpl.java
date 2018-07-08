@@ -8,10 +8,14 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URISyntaxException;
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,9 +28,12 @@ import java.util.List;
 @Service("taxReportService")
 public class TaxReportServiceImpl implements TaxReportService {
 
-    public static final String DATE_FORMAT = "dd.MM.YYYY HH:mm:ss";
+    public static final String DATE_FORMAT = "dd.MM.yyyy HH:mm:ss";
 
     private static final Logger logger = LoggerFactory.getLogger(TaxReportServiceImpl.class);
+
+    @Autowired
+    private ExchangeRateUahServiceImpl exchangeRateUahService;
 
     @Override
     public List<TaxRecord> parseDocument(File document) throws IOException, ParseException {
@@ -52,14 +59,16 @@ public class TaxReportServiceImpl implements TaxReportService {
 
     private List<TaxRecord> parseTable(Element element) throws ParseException {
         List<TaxRecord> taxRecords = new ArrayList<>();
-        
+
         Elements trs = element.getElementsByTag("tr");
         for (int i = 1; i < trs.size() - 1; i++) {
             Element row = trs.get(i);
             Elements tDs = row.getElementsByTag("td");
 
             TaxRecord taxRecord = parseTaxRecordRaw(tDs);
-            taxRecords.add(taxRecord);
+            if (taxRecord != null) {
+                taxRecords.add(taxRecord);
+            }
         }
 
         return taxRecords;
@@ -81,19 +90,36 @@ public class TaxReportServiceImpl implements TaxReportService {
         String MFO = tDs.get(10).text();
         String reference = tDs.get(11).text();
 
-        if (currency.equalsIgnoreCase("UAH")) {
-            taxRecord.setUahRevenue(incomeAmount + consumptionAmount);
-        } else if (currency.equalsIgnoreCase("USD")) {
-            taxRecord.setUsdRevenue(incomeAmount + consumptionAmount);
+        taxRecord.setCounterpartyName(counterparty);
+
+        if (currency.equalsIgnoreCase("UAH") && consumptionAmount < 0) {
+            consumptionAmount = consumptionAmount * -1;
+            taxRecord.setUahRevenue(consumptionAmount);
+        } else if (currency.equalsIgnoreCase("USD") && consumptionAmount < 0) {
+            consumptionAmount = consumptionAmount * -1;
+            taxRecord.setUsdRevenue(consumptionAmount);
+        }
+
+        if (taxRecord.getUahRevenue() == 0 && taxRecord.getUsdRevenue() == 0) {
+            return null;
         }
 
         try {
-            Date receivingDate = new SimpleDateFormat(DATE_FORMAT).parse(receivingDay + " " + receivingTime);
+            DateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
+            Date receivingDate = simpleDateFormat.parse(receivingDay + " " + receivingTime);
+
+            DateFormat dateFormatForExchange = new SimpleDateFormat(ExchangeRateUahServiceImpl.DATE_FORMAT);
+            String format = dateFormatForExchange.format(receivingDate);
+            Double rate = exchangeRateUahService.getRate(format, "USD");
+
+            taxRecord.setExchRateUsdUahNBUatReceivingDate(rate);
             taxRecord.setReceivingDate(receivingDate);
         } catch (ParseException e) {
             logger.error(e.getMessage(), e);
             //TODO wrap exception
             throw e;
+        } catch (URISyntaxException | MalformedURLException e) {
+            e.printStackTrace();
         }
 
         return taxRecord;
