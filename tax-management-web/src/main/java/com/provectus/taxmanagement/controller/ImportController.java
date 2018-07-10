@@ -51,7 +51,7 @@ public class ImportController {
             String encodedPath = new String(Base64.getUrlEncoder().encode(taxReport.getPath().getBytes()));
             response.sendRedirect("/import/getFile/" + encodedPath);
         } catch (TikaException | SAXException | ParserConfigurationException e) {
-            e.printStackTrace();//
+            e.printStackTrace();
         }
     }
 
@@ -63,7 +63,7 @@ public class ImportController {
         response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
         response.setHeader("Content-Disposition", "inline; filename=" + new String(taxReport.getName().getBytes(), StandardCharsets.UTF_8.name()));
         response.setHeader("Content-Length", String.valueOf(taxReport.length()));
-
+        FileUtils.forceDeleteOnExit(taxReport);
         return new FileSystemResource(taxReport);
     }
 }
