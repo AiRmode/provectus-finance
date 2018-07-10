@@ -12,9 +12,13 @@ import org.springframework.core.io.FileSystemResource;
 import org.springframework.web.bind.annotation.*;
 import org.xml.sax.SAXException;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Set;
 
 /**
@@ -37,18 +41,29 @@ public class ImportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/convertTaxReport/{employeeId}", method = RequestMethod.POST, produces = "application/*")
-    @ResponseBody
-    public FileSystemResource convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionDTO, @PathVariable String employeeId) throws IOException {
+    public void convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionDTO, @PathVariable String employeeId, HttpServletResponse response, HttpServletRequest request) throws IOException {
         File savedFile = storageService.storeFile(quarterDefinitionDTO.getFile());
 
         try {
             Set<Quarter> quarters = importService.importTaxRecordFile(savedFile, employeeId, new Quarter.QuarterDefinition(quarterDefinitionDTO.getQuarterName().toString(), quarterDefinitionDTO.getYear()));
             File taxReport = reportService.createTaxReport(quarters);
             FileUtils.forceDelete(savedFile);
-            return new FileSystemResource(taxReport);
+            String encodedPath = new String(Base64.getUrlEncoder().encode(taxReport.getPath().getBytes()));
+            response.sendRedirect("/import/getFile/" + encodedPath);
         } catch (TikaException | SAXException | ParserConfigurationException e) {
             e.printStackTrace();//
         }
-        return null;
+    }
+
+    @RequestMapping(value = "/getFile/{fileRelativePath}", method = RequestMethod.GET, produces = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
+    @ResponseBody
+    public FileSystemResource downloadAttachment(@PathVariable String fileRelativePath, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException {
+        String path = new String(Base64.getUrlDecoder().decode(fileRelativePath.getBytes()));
+        File taxReport = new File(path);
+        response.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        response.setHeader("Content-Disposition", "inline; filename=" + new String(taxReport.getName().getBytes(), StandardCharsets.UTF_8.name()));
+        response.setHeader("Content-Length", String.valueOf(taxReport.length()));
+
+        return new FileSystemResource(taxReport);
     }
 }

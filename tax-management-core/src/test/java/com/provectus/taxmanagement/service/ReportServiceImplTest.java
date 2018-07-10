@@ -4,6 +4,7 @@ import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.enums.QuarterName;
 import com.provectus.taxmanagement.integration.TestParent;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.File;
@@ -18,6 +19,7 @@ import static org.junit.Assert.assertNotNull;
 public class ReportServiceImplTest extends TestParent {
 
     @Test
+    @Ignore
     public void testCreateTaxReport() {
         Quarter.QuarterDefinition quarterDefinition = new Quarter.QuarterDefinition();
         quarterDefinition.setQuarterName(QuarterName.Q1);
