@@ -92,12 +92,10 @@ public class TaxReportServiceImpl implements TaxReportService {
 
         taxRecord.setCounterpartyName(counterparty);
 
-        if (currency.equalsIgnoreCase("UAH") && consumptionAmount < 0) {
-            consumptionAmount = consumptionAmount * -1;
-            taxRecord.setUahRevenue(consumptionAmount);
-        } else if (currency.equalsIgnoreCase("USD") && consumptionAmount < 0) {
-            consumptionAmount = consumptionAmount * -1;
-            taxRecord.setUsdRevenue(consumptionAmount);
+        if (currency.equalsIgnoreCase("UAH") && incomeAmount > 0) {
+            taxRecord.setUahRevenue(incomeAmount);
+        } else if (currency.equalsIgnoreCase("USD") && incomeAmount > 0) {
+            taxRecord.setUsdRevenue(incomeAmount);
         }
 
         if (taxRecord.getUahRevenue() == 0 && taxRecord.getUsdRevenue() == 0) {
