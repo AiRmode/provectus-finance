@@ -22,6 +22,7 @@ import java.util.Set;
 
 @Service
 public class ReportServiceImpl implements ReportService {
+    public static final String DATE_PATTERN_FOR_REPORT = "dd/MM/yyyy";
     @Autowired
     private StorageService storageService;
 
@@ -48,7 +49,7 @@ public class ReportServiceImpl implements ReportService {
             Cell taxCell = currentRow.getCell(cell++);
             taxCell.setCellValue(taxRecord.getCounterpartyName());
             taxCell = currentRow.getCell(cell++);
-            taxCell.setCellValue(new SimpleDateFormat("MM/dd/yyyy").format(taxRecord.getReceivingDate()));
+            taxCell.setCellValue(new SimpleDateFormat(DATE_PATTERN_FOR_REPORT).format(taxRecord.getReceivingDate()));
             taxCell = currentRow.getCell(cell++);
             taxCell.setCellValue(taxRecord.getUsdRevenue());
             taxCell = currentRow.getCell(cell++);
