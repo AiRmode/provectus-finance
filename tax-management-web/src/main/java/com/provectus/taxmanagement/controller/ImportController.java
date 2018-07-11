@@ -41,7 +41,7 @@ public class ImportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/convertTaxReport/{employeeId}", method = RequestMethod.POST, produces = "application/*")
-    public void convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionWithAttachmentDTO quarterDefinitionWithAttachmentDTO, @PathVariable String employeeId, HttpServletResponse response, HttpServletRequest request) throws IOException {
+    public void convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionWithAttachmentDTO, @PathVariable String employeeId, HttpServletResponse response, HttpServletRequest request) throws IOException {
         File savedFile = storageService.storeFile(quarterDefinitionWithAttachmentDTO.getFile());
 
         try {
