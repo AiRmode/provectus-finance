@@ -29,7 +29,7 @@ public class ReportServiceImpl implements ReportService {
     @Autowired
     private TaxCalculationService taxCalculationService;
 
-    public File createTaxReport(Set<Quarter> quarterSet) {
+    public File generateTaxReport(Set<Quarter> quarterSet) {
 
         Workbook wb = new XSSFWorkbook();
 

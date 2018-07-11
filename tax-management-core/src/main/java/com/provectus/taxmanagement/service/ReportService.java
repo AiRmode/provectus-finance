@@ -6,5 +6,5 @@ import java.io.File;
 import java.util.Set;
 
 public interface ReportService {
-    File createTaxReport(Set<Quarter> quarterSet);
+    File generateTaxReport(Set<Quarter> quarterSet);
 }

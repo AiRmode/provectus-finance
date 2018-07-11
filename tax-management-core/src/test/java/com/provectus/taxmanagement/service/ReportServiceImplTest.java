@@ -38,7 +38,7 @@ public class ReportServiceImplTest extends TestParent {
         Set<Quarter> set = new HashSet<>();
         set.add(quarter);
 
-        File taxReport = reportService.createTaxReport(set);
+        File taxReport = reportService.generateTaxReport(set);
         assertNotNull(taxReport);
     }
 }

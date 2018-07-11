@@ -13,5 +13,5 @@ import java.util.Set;
  * Created by alexey on 17.04.17.
  */
 public interface ImportService {
-    Set<Quarter> importTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException;
+    Set<Quarter> parseTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException;
 }

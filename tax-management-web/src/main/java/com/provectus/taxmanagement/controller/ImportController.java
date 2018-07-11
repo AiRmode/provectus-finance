@@ -41,12 +41,12 @@ public class ImportController {
     private ReportService reportService;
 
     @RequestMapping(value = "/convertTaxReport/{employeeId}", method = RequestMethod.POST, produces = "application/*")
-    public void convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionDTO quarterDefinitionDTO, @PathVariable String employeeId, HttpServletResponse response, HttpServletRequest request) throws IOException {
-        File savedFile = storageService.storeFile(quarterDefinitionDTO.getFile());
+    public void convertTaxReport(@ModelAttribute Quarter.QuarterDefinitionWithAttachmentDTO quarterDefinitionWithAttachmentDTO, @PathVariable String employeeId, HttpServletResponse response, HttpServletRequest request) throws IOException {
+        File savedFile = storageService.storeFile(quarterDefinitionWithAttachmentDTO.getFile());
 
         try {
-            Set<Quarter> quarters = importService.importTaxRecordFile(savedFile, employeeId, new Quarter.QuarterDefinition(quarterDefinitionDTO.getQuarterName().toString(), quarterDefinitionDTO.getYear()));
-            File taxReport = reportService.createTaxReport(quarters);
+            Set<Quarter> quarters = importService.parseTaxRecordFile(savedFile, employeeId, new Quarter.QuarterDefinition(quarterDefinitionWithAttachmentDTO.getQuarterName().toString(), quarterDefinitionWithAttachmentDTO.getYear()));
+            File taxReport = reportService.generateTaxReport(quarters);
             FileUtils.forceDelete(savedFile);
             String encodedPath = new String(Base64.getUrlEncoder().encode(taxReport.getPath().getBytes()));
             response.sendRedirect("/import/getFile/" + encodedPath);

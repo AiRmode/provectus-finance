@@ -45,7 +45,7 @@ public class ImportServiceImpl implements ImportService {
     private QuarterService quarterService;
 
     @Override
-    public Set<Quarter> importTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
+    public Set<Quarter> parseTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
         List<TaxRecord> taxRecords = null;
         try {
             taxRecords = taxReportService.parseDocument(file);
