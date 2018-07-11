@@ -42,15 +42,15 @@ public class Quarter implements Serializable, Comparable<Quarter> {
     /**
      * Just a workaround. There is an issue with sending multipart request with a payload
      */
-    public static class QuarterDefinitionDTO extends QuarterDefinition {
-        private MultipartFile file;
+    public static class QuarterDefinitionWithAttachmentDTO extends QuarterDefinition {
+        private MultipartFile[] files;
 
-        public MultipartFile getFile() {
-            return file;
+        public MultipartFile[] getFiles() {
+            return files;
         }
 
-        public void setFile(MultipartFile file) {
-            this.file = file;
+        public void setFiles(MultipartFile[] files) {
+            this.files = files;
         }
     }
 

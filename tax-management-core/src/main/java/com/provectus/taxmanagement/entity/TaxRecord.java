@@ -1,5 +1,6 @@
 package com.provectus.taxmanagement.entity;
 
+import com.provectus.taxmanagement.enums.TaxRecordTaxationStatus;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
@@ -19,6 +20,9 @@ public class TaxRecord implements Serializable {
     @Version
     private Long version;
     private String counterpartyName;
+    private String paymentPurpose;
+    private TaxRecordTaxationStatus taxationStatus;
+
     @Indexed
     private Date receivingDate;
     private Double uahRevenue = 0d;
@@ -93,6 +97,38 @@ public class TaxRecord implements Serializable {
         this.version = version;
     }
 
+    public String getPaymentPurpose() {
+        return paymentPurpose;
+    }
+
+    public void setPaymentPurpose(String paymentPurpose) {
+        this.paymentPurpose = paymentPurpose;
+    }
+
+    public Date getCreatedDate() {
+        return createdDate;
+    }
+
+    public void setCreatedDate(Date createdDate) {
+        this.createdDate = createdDate;
+    }
+
+    public Date getModifiedDate() {
+        return modifiedDate;
+    }
+
+    public void setModifiedDate(Date modifiedDate) {
+        this.modifiedDate = modifiedDate;
+    }
+
+    public TaxRecordTaxationStatus getTaxationStatus() {
+        return taxationStatus;
+    }
+
+    public void setTaxationStatus(TaxRecordTaxationStatus taxationStatus) {
+        this.taxationStatus = taxationStatus;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -103,6 +139,8 @@ public class TaxRecord implements Serializable {
         if (id != null ? !id.equals(taxRecord.id) : taxRecord.id != null) return false;
         if (version != null ? !version.equals(taxRecord.version) : taxRecord.version != null) return false;
         if (counterpartyName != null ? !counterpartyName.equals(taxRecord.counterpartyName) : taxRecord.counterpartyName != null)
+            return false;
+        if (paymentPurpose != null ? !paymentPurpose.equals(taxRecord.paymentPurpose) : taxRecord.paymentPurpose != null)
             return false;
         if (receivingDate != null ? !receivingDate.equals(taxRecord.receivingDate) : taxRecord.receivingDate != null)
             return false;
@@ -123,6 +161,7 @@ public class TaxRecord implements Serializable {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (version != null ? version.hashCode() : 0);
         result = 31 * result + (counterpartyName != null ? counterpartyName.hashCode() : 0);
+        result = 31 * result + (paymentPurpose != null ? paymentPurpose.hashCode() : 0);
         result = 31 * result + (receivingDate != null ? receivingDate.hashCode() : 0);
         result = 31 * result + (uahRevenue != null ? uahRevenue.hashCode() : 0);
         result = 31 * result + (usdRevenue != null ? usdRevenue.hashCode() : 0);

@@ -15,7 +15,7 @@ public class ImportServiceTest extends TestParent {
 
     @Test
     public void testImport() throws IOException, TikaException, SAXException, ParserConfigurationException {
-//        importService.parseTaxRecordFile(new File(getClass().getClassLoader().getResource("UkrSib_USD_2603.pdf").getFile()), "asd");
-//        importService.parseTaxRecordFile(new File(getClass().getClassLoader().getResource("testUAH2600.xls").getFile()), "asd");
+//        importService.parseTaxRecordFile(new File(getClass().getClassLoader().getResource("UkrSib_USD_2603.pdf").getFiles()), "asd");
+//        importService.parseTaxRecordFile(new File(getClass().getClassLoader().getResource("testUAH2600.xls").getFiles()), "asd");
     }
 }
