@@ -21,7 +21,7 @@ public class TaxRecord implements Serializable {
     private Long version;
     private String counterpartyName;
     private String paymentPurpose;
-    private TaxRecordTaxationStatus taxationStatus;
+    private TaxRecordTaxationStatus taxationStatus = TaxRecordTaxationStatus.UNDEFINED;
 
     @Indexed
     private Date receivingDate;
