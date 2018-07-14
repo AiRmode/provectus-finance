@@ -3,17 +3,20 @@ package com.provectus.taxmanagement.entity;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Version;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-@Document(collection = "taxationDescriptions")
-public class TaxationAnalyticsDetails implements Serializable, Comparable<TaxationAnalyticsDetails> {
+@Document(collection = "taxationWordAnalyticsDetails")
+public class TaxationWordAnalyticsDetails implements Serializable, Comparable<TaxationWordAnalyticsDetails> {
+
     @Id
     private ObjectId id;
-    private String counterparty;
-    private String paymentPurpose;
+    
+    @Indexed(unique = true)
+    private String word;
     private int weight;
 
     @Version
@@ -27,20 +30,12 @@ public class TaxationAnalyticsDetails implements Serializable, Comparable<Taxati
         this.id = new ObjectId(id);
     }
 
-    public String getCounterparty() {
-        return counterparty;
+    public String getWord() {
+        return word;
     }
 
-    public void setCounterparty(String counterparty) {
-        this.counterparty = counterparty;
-    }
-
-    public String getPaymentPurpose() {
-        return paymentPurpose;
-    }
-
-    public void setPaymentPurpose(String paymentPurpose) {
-        this.paymentPurpose = paymentPurpose;
+    public void setWord(String word) {
+        this.word = word;
     }
 
     public long getVersion() {
@@ -60,23 +55,27 @@ public class TaxationAnalyticsDetails implements Serializable, Comparable<Taxati
     }
 
     @Override
-    public int compareTo(TaxationAnalyticsDetails o) {
-        return 0;
+    public int compareTo(TaxationWordAnalyticsDetails o) {
+        if (this.hashCode() == o.hashCode() && this.equals(o)) {
+            return 0;
+        } else if (word.compareTo(o.getWord()) > 0) {
+            return 1;
+        } else
+            return -1;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TaxationAnalyticsDetails that = (TaxationAnalyticsDetails) o;
+        TaxationWordAnalyticsDetails that = (TaxationWordAnalyticsDetails) o;
         return version == that.version &&
                 Objects.equals(id, that.id) &&
-                Objects.equals(counterparty, that.counterparty) &&
-                Objects.equals(paymentPurpose, that.paymentPurpose);
+                Objects.equals(word, that.word);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, counterparty, paymentPurpose, version);
+        return Objects.hash(id, word, version);
     }
 }

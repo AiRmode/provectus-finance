@@ -83,7 +83,7 @@ public class TaxReportServiceImpl implements TaxReportService {
         double incomeAmount = parseNumber(tDs.get(3).text());
         double consumptionAmount = parseNumber(tDs.get(4).text());
         String currency = tDs.get(5).text();
-        String paymentPurpose = tDs.get(5).text();
+        String paymentPurpose = tDs.get(6).text();
         String YEGRPOU = tDs.get(7).text();
         String counterparty = tDs.get(8).text();
         String bill = tDs.get(9).text();
@@ -91,6 +91,7 @@ public class TaxReportServiceImpl implements TaxReportService {
         String reference = tDs.get(11).text();
 
         taxRecord.setCounterpartyName(counterparty);
+        taxRecord.setPaymentPurpose(paymentPurpose);
 
         if (currency.equalsIgnoreCase("UAH") && incomeAmount > 0) {
             taxRecord.setUahRevenue(incomeAmount);

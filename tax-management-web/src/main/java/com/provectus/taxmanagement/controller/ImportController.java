@@ -66,7 +66,7 @@ public class ImportController {
     @RequestMapping(value = "/generateTaxReport", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> generateTaxReport(@RequestBody Quarter quarter) {
-        quarter = taxationAnalyzerService.analyzeTaxationFeedbackBasedOnManuallyFilteredData(quarter);
+        taxationAnalyzerService.analyzeTaxationFeedbackBasedOnManuallyFilteredData(quarter);
 
         File taxReport = reportService.generateTaxReport(quarter);
         String encodedPath = new String(Base64.getUrlEncoder().encode(taxReport.getPath().getBytes()));
