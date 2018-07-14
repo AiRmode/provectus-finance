@@ -70,7 +70,7 @@
                         <configuration>
                             <tasks>
                                 <copy todir="src/main/resources">
-                                    <fileset dir="../provectus-finance/web"/>
+                                    <fileset dir="../provectus-finance-ui/web"/>
                                 </copy>
                             </tasks>
                         </configuration>
