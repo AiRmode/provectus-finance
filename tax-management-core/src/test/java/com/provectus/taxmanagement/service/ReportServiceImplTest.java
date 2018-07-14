@@ -11,8 +11,6 @@ import java.io.File;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 import static org.junit.Assert.assertNotNull;
 
@@ -35,10 +33,7 @@ public class ReportServiceImplTest extends TestParent {
 
         quarter.addTaxRecord(taxRecord);
 
-        Set<Quarter> set = new HashSet<>();
-        set.add(quarter);
-
-        File taxReport = reportService.generateTaxReport(set);
+        File taxReport = reportService.generateTaxReport(quarter);
         assertNotNull(taxReport);
     }
 }

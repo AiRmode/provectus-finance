@@ -18,7 +18,6 @@ import java.io.File;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 @Service
 public class ReportServiceImpl implements ReportService {
@@ -29,15 +28,14 @@ public class ReportServiceImpl implements ReportService {
     @Autowired
     private TaxCalculationService taxCalculationService;
 
-    public File generateTaxReport(Set<Quarter> quarterSet) {
+    @Override
+    public File generateTaxReport(Quarter quarter) {
 
         Workbook wb = new XSSFWorkbook();
 
         Sheet summary = createStaticHeaders(wb);
 
-        quarterSet.forEach(quarter -> {
-            fillDataToRow(summary, quarter, 3, 0);
-        });
+        fillDataToRow(summary, quarter, 3, 0);
 
         return storageService.saveWorkbook(wb, "налоги.xlsx");
     }

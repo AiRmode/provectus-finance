@@ -28,8 +28,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.ParseException;
 import java.util.List;
-import java.util.Set;
-import java.util.TreeSet;
 
 /**
  * Created by alexey on 17.04.17.
@@ -45,20 +43,14 @@ public class ImportServiceImpl implements ImportService {
     private QuarterService quarterService;
 
     @Override
-    public Set<Quarter> parseTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
+    public Quarter parseTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
         List<TaxRecord> taxRecords = null;
         try {
             taxRecords = taxReportService.parseDocument(file);
             Quarter q = new Quarter(quarterDefinition);
             q.addTaxRecords(taxRecords);
-            TreeSet<Quarter> quarters = new TreeSet<>();
-            quarters.add(q);
 
-            quarters.forEach(quarter -> {
-                quarterService.addQuarter(employeeId, quarter);
-            });
-
-            return quarters;
+            return q;
         } catch (ParseException e) {
             e.printStackTrace();
         }

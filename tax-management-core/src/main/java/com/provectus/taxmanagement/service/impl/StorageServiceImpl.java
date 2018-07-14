@@ -15,6 +15,8 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alexey on 22.04.17.
@@ -33,6 +35,16 @@ public class StorageServiceImpl implements StorageService {
         Path path = Paths.get(f.getAbsolutePath(), System.nanoTime() + file.getOriginalFilename());
         Files.write(path, bytes);
         return path.toFile();
+    }
+
+    @Override
+    public List<File> storeFiles(MultipartFile[] files) throws IOException {
+        List<File> f = new ArrayList<>();
+        for (MultipartFile multipartFile : files) {
+            File file = storeFile(multipartFile);
+            f.add(file);
+        }
+        return f;
     }
 
     @Override
