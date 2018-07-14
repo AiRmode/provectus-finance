@@ -5,5 +5,5 @@ import com.provectus.taxmanagement.entity.Quarter;
 public interface TaxationAnalyzerService {
     Quarter analyzeTaxationBasedOnStoredData(Quarter quarter);
 
-    void analyzeTaxationFeedbackBasedOnManuallyFilteredData(Quarter quarter);
+    Quarter analyzeTaxationFeedbackBasedOnManuallyFilteredData(Quarter quarter);
 }

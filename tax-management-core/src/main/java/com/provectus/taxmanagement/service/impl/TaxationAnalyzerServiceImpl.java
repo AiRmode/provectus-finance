@@ -9,10 +9,7 @@ import com.provectus.taxmanagement.service.TaxationAnalyzerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class TaxationAnalyzerServiceImpl implements TaxationAnalyzerService {
@@ -41,14 +38,18 @@ public class TaxationAnalyzerServiceImpl implements TaxationAnalyzerService {
     }
 
     @Override
-    public void analyzeTaxationFeedbackBasedOnManuallyFilteredData(Quarter quarter) {
-        for (TaxRecord taxRecord : quarter.getTaxRecords()) {
+    public Quarter analyzeTaxationFeedbackBasedOnManuallyFilteredData(Quarter quarter) {
+        Iterator<TaxRecord> taxRecords = quarter.getTaxRecords().iterator();
+        while (taxRecords.hasNext()) {
+            TaxRecord taxRecord = taxRecords.next();
             if (taxRecord.getTaxationStatus() == TaxRecordTaxationStatus.APPROVED) {
                 changeWeight(taxRecord, MODIFIER);
             } else if (taxRecord.getTaxationStatus() == TaxRecordTaxationStatus.REJECTED) {
                 changeWeight(taxRecord, -MODIFIER);
+                taxRecords.remove();
             }
         }
+        return quarter;
     }
 
     private void changeWeight(TaxRecord taxRecord, int weightValue) {
