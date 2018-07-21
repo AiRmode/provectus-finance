@@ -74,12 +74,14 @@ public class ReportServiceImpl implements ReportService {
         sumValueCell.setCellValue(taxCalculationService.calculateTaxation(quarter));
         Cell taxValueCell = sumRow.getCell(8);
         taxValueCell.setCellValue(taxCalculationService.calculateTaxValue(quarter));
-        summary.addMergedRegion(new CellRangeAddress(
-                3, //first row (0-based)
-                3 + taxRecords.size() - 1, //last row  (0-based)
-                7, //first column (0-based)
-                7  //last column  (0-based)
-        ));
+        if (taxRecords.size() > 1) {
+            summary.addMergedRegion(new CellRangeAddress(
+                    3, //first row (0-based)
+                    3 + taxRecords.size() - 1, //last row  (0-based)
+                    7, //first column (0-based)
+                    7  //last column  (0-based)
+            ));
+        }
         Row quarterRow = summary.getRow(3);
         Cell quarterCell = quarterRow.getCell(7);
         quarterCell.setCellValue(quarter.getQuarterDefinition().getQuarterName() + " " + quarter.getQuarterDefinition().getYear());
