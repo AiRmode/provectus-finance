@@ -17,12 +17,13 @@ public class TaxationAnalyzerServiceImpl implements TaxationAnalyzerService {
     public static final String SPLIT_BY_SPACES = " ";
     public static final int TRESHOLD = 10;
     public static final int MODIFIER = 1;
+    public static final int WEIGHT_LIMIT = 70;
 
     @Autowired
     private TaxationDescriptionsRepository taxationDescriptionsRepository;
 
     @Override
-    public Quarter analyzeTaxationBasedOnStoredData(Quarter quarter) {
+    public Quarter classifyTaxStatuses(Quarter quarter) {
         for (TaxRecord taxRecord : quarter.getTaxRecords()) {
             Set<String> words = parseWords(taxRecord);
             saveUnique(words);
@@ -38,7 +39,7 @@ public class TaxationAnalyzerServiceImpl implements TaxationAnalyzerService {
     }
 
     @Override
-    public Quarter analyzeTaxationFeedbackBasedOnManuallyFilteredData(Quarter quarter) {
+    public Quarter trainModelBasedOnUserData(Quarter quarter) {
         Iterator<TaxRecord> taxRecords = quarter.getTaxRecords().iterator();
         while (taxRecords.hasNext()) {
             TaxRecord taxRecord = taxRecords.next();
@@ -56,10 +57,16 @@ public class TaxationAnalyzerServiceImpl implements TaxationAnalyzerService {
         Iterable<TaxationWordAnalyticsDetails> taxationWordAnalyticsDetails = getTaxationWordAnalyticsDetails(parseWords(taxRecord));
         taxationWordAnalyticsDetails.forEach(word -> {
             int weight = word.getWeight();
-            weight = weight + weightValue;
-            word.setWeight(weight);
-            taxationDescriptionsRepository.save(word);
+            if (!isReachedWeightLimit(weight)) {
+                weight = weight + weightValue;
+                word.setWeight(weight);
+                taxationDescriptionsRepository.save(word);
+            }
         });
+    }
+
+    private boolean isReachedWeightLimit(int weight) {
+        return weight >= WEIGHT_LIMIT || weight <= -WEIGHT_LIMIT;
     }
 
     private int getSumWeight(Iterable<TaxationWordAnalyticsDetails> all) {

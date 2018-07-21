@@ -60,13 +60,13 @@ public class ImportController {
         });
         savedFiles.forEach(File::delete);
 
-        return taxationAnalyzerService.analyzeTaxationBasedOnStoredData(quarter);
+        return taxationAnalyzerService.classifyTaxStatuses(quarter);
     }
 
     @RequestMapping(value = "/generateTaxReport", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, String> generateTaxReport(@RequestBody Quarter quarter) {
-        Quarter analyzed = taxationAnalyzerService.analyzeTaxationFeedbackBasedOnManuallyFilteredData(quarter);
+        Quarter analyzed = taxationAnalyzerService.trainModelBasedOnUserData(quarter);
 
         File taxReport = reportService.generateTaxReport(analyzed);
         String encodedPath = new String(Base64.getUrlEncoder().encode(taxReport.getPath().getBytes()));
