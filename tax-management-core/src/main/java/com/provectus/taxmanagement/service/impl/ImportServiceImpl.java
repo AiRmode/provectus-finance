@@ -3,12 +3,8 @@ package com.provectus.taxmanagement.service.impl;
 import com.provectus.taxmanagement.entity.Quarter;
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.service.ImportService;
-import com.provectus.taxmanagement.service.QuarterService;
 import com.provectus.taxmanagement.service.TaxReportService;
 import org.apache.commons.io.FilenameUtils;
-import org.apache.poi.hssf.usermodel.HSSFSheet;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.apache.tika.Tika;
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
@@ -17,6 +13,8 @@ import org.apache.tika.parser.ParseContext;
 import org.apache.tika.parser.Parser;
 import org.apache.tika.parser.pdf.PDFParser;
 import org.apache.tika.sax.BodyContentHandler;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
@@ -39,8 +37,7 @@ public class ImportServiceImpl implements ImportService {
     @Qualifier("taxReportService")
     private TaxReportService taxReportService;
 
-    @Autowired
-    private QuarterService quarterService;
+    private static final Logger logger = LoggerFactory.getLogger(ImportServiceImpl.class);
 
     @Override
     public Quarter parseTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
@@ -52,19 +49,15 @@ public class ImportServiceImpl implements ImportService {
 
             return q;
         } catch (ParseException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(), e);
         }
-
-        HSSFWorkbook workbook;// = new HSSFWorkbook(new FileInputStream(file));
-        HSSFSheet sheet;//= workbook.getSheetAt(0);
-        XSSFWorkbook workbook1 = null;//new XSSFWorkbook(new FileInputStream(file));//?
 
         String fileType = detectFileType(file);
 
         Parser parser = createParser(file, fileType);
 
         String s = getFileContent(parser, file);
-        System.out.println("File content : " + s);
+        logger.info("File content : " + s);
         return null;
     }
 

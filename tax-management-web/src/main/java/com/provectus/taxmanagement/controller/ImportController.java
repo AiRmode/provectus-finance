@@ -7,6 +7,8 @@ import com.provectus.taxmanagement.service.StorageService;
 import com.provectus.taxmanagement.service.TaxationAnalyzerService;
 import org.apache.commons.io.FileUtils;
 import org.apache.tika.exception.TikaException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.core.io.FileSystemResource;
@@ -45,6 +47,8 @@ public class ImportController {
     @Autowired
     private TaxationAnalyzerService taxationAnalyzerService;
 
+    private static final Logger logger = LoggerFactory.getLogger(ImportController.class);
+
     @RequestMapping(value = "/parseTaxReport/{employeeId}", method = RequestMethod.POST, produces = "application/json")
     public Quarter parseTaxReport(@ModelAttribute Quarter.QuarterDefinitionWithAttachmentDTO quarterDefinitionWithAttachmentDTO, @PathVariable String employeeId) throws IOException {
         List<File> savedFiles = storageService.storeFiles(quarterDefinitionWithAttachmentDTO.getFiles());
@@ -55,7 +59,7 @@ public class ImportController {
                 Quarter q = importService.parseTaxRecordFile(file, employeeId, new Quarter.QuarterDefinition(quarterDefinitionWithAttachmentDTO.getQuarterName().toString(), quarterDefinitionWithAttachmentDTO.getYear()));
                 quarter.addTaxRecords(q.getTaxRecords());
             } catch (IOException | TikaException | SAXException | ParserConfigurationException e) {
-                e.printStackTrace();
+                logger.error(e.getMessage(), e);
             }
         });
         savedFiles.forEach(File::delete);

@@ -2,6 +2,8 @@ package com.provectus.taxmanagement.service.impl;
 
 import com.provectus.taxmanagement.service.StorageService;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -27,6 +29,7 @@ public class StorageServiceImpl implements StorageService {
     private static final String FOLDER_PATTERN = "ddMMyyyy";
     private static final String IMPORTS_PATH = "imports";
     private final File storage = new File(STORAGE_PATH, IMPORTS_PATH);
+    private static final Logger logger = LoggerFactory.getLogger(StorageServiceImpl.class);
 
     @Override
     public File storeFile(MultipartFile file) throws IOException {
@@ -55,7 +58,7 @@ public class StorageServiceImpl implements StorageService {
         try (OutputStream fileOut = new FileOutputStream(file)) {
             wb.write(fileOut);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(), e);
         }
         return file;
     }

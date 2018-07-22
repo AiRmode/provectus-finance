@@ -42,13 +42,12 @@ public class TaxReportServiceImpl implements TaxReportService {
 
             Elements tables = doc.getElementsByTag("table");
 
-            if (tables.size() != 2) System.out.println("Table counts is not correct");
+            if (tables.size() != 2) logger.error("Table counts is not correct");
 
             String headerText = parseHeader(tables.get(0));
             return parseTable(tables.get(1));
         } catch (IOException e) {
             logger.error(e.getMessage(), e);
-            //TODO wrap exception
             throw e;
         }
     }
@@ -118,7 +117,7 @@ public class TaxReportServiceImpl implements TaxReportService {
             //TODO wrap exception
             throw e;
         } catch (URISyntaxException | MalformedURLException e) {
-            e.printStackTrace();
+            logger.error(e.getMessage(), e);
         }
 
         return taxRecord;
