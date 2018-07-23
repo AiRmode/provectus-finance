@@ -12,12 +12,14 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 /**
@@ -35,7 +37,8 @@ public class StorageServiceImpl implements StorageService {
     public File storeFile(MultipartFile file) throws IOException {
         File f = createDailyFolder();
         byte[] bytes = file.getBytes();
-        Path path = Paths.get(f.getAbsolutePath(), System.nanoTime() + file.getOriginalFilename());
+        byte[] fileName = file.getOriginalFilename().getBytes();
+        Path path = Paths.get(f.getAbsolutePath(), System.nanoTime() + new String(Base64.getEncoder().encode(fileName), StandardCharsets.UTF_8));
         Files.write(path, bytes);
         return path.toFile();
     }
