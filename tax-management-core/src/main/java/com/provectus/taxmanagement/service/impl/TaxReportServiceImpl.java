@@ -2,6 +2,10 @@ package com.provectus.taxmanagement.service.impl;
 
 import com.provectus.taxmanagement.entity.TaxRecord;
 import com.provectus.taxmanagement.service.TaxReportService;
+import org.apache.poi.hssf.usermodel.HSSFSheet;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,9 +14,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.text.DateFormat;
@@ -20,6 +27,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -36,7 +44,7 @@ public class TaxReportServiceImpl implements TaxReportService {
     private ExchangeRateUahServiceImpl exchangeRateUahService;
 
     @Override
-    public List<TaxRecord> parseDocument(File document) throws IOException, ParseException {
+    public List<TaxRecord> parseDocument(File document) {
         try {
             Document doc = Jsoup.parse(document, "UTF-8");
 
@@ -46,10 +54,41 @@ public class TaxReportServiceImpl implements TaxReportService {
 
             String headerText = parseHeader(tables.get(0));
             return parseTable(tables.get(1));
-        } catch (IOException e) {
+        } catch (Exception e) {
             logger.error(e.getMessage(), e);
-            throw e;
         }
+        return null;
+    }
+
+    @Override
+    public List<TaxRecord> parseXlsDocument(File document) {
+        List<TaxRecord> records = new ArrayList<>();
+        try (InputStream in = new FileInputStream(document.getAbsolutePath())) {
+            HSSFWorkbook sheets = new HSSFWorkbook(in);
+            HSSFSheet activeSheet = sheets.getSheetAt(sheets.getActiveSheetIndex());
+            Iterator<Row> iterator = activeSheet.iterator();
+            while (iterator.hasNext()) {
+                Row row = iterator.next();
+                Cell cell0 = row.getCell(0);
+                if (StringUtils.isEmpty(cell0.toString()) || cell0.getStringCellValue().contains("Виписка по рахунку") || cell0.getStringCellValue().equals("№")) {
+                    continue;
+                }
+                TaxRecord taxRecord = new TaxRecord();
+                Date paymentDate = row.getCell(1).getDateCellValue();
+                Date paymentTime = row.getCell(2).getDateCellValue();
+                createDate(taxRecord, new SimpleDateFormat("dd.MM.yyyy").format(paymentDate), new SimpleDateFormat("HH:mm:ss").format(paymentTime));
+                double incomeAmount = row.getCell(3).getNumericCellValue();
+                String currency = row.getCell(5).getStringCellValue();
+                if (createMoneyData(taxRecord, incomeAmount, currency))
+                    continue;
+                taxRecord.setCounterpartyName(row.getCell(8).getStringCellValue());
+                taxRecord.setPaymentPurpose(row.getCell(6).getStringCellValue());
+                records.add(taxRecord);
+            }
+        } catch (IOException | ParseException e) {
+            logger.error(e.getMessage(), e);
+        }
+        return records;
     }
 
     private String parseHeader(Element element) {
@@ -92,6 +131,14 @@ public class TaxReportServiceImpl implements TaxReportService {
         taxRecord.setCounterpartyName(counterparty);
         taxRecord.setPaymentPurpose(paymentPurpose);
 
+        if (createMoneyData(taxRecord, incomeAmount, currency)) return null;
+
+        createDate(taxRecord, receivingDay, receivingTime);
+
+        return taxRecord;
+    }
+
+    private boolean createMoneyData(TaxRecord taxRecord, double incomeAmount, String currency) {
         if (currency.equalsIgnoreCase("UAH") && incomeAmount > 0) {
             taxRecord.setUahRevenue(incomeAmount);
         } else if (currency.equalsIgnoreCase("USD") && incomeAmount > 0) {
@@ -99,9 +146,12 @@ public class TaxReportServiceImpl implements TaxReportService {
         }
 
         if (taxRecord.getUahRevenue() == 0 && taxRecord.getUsdRevenue() == 0) {
-            return null;
+            return true;
         }
+        return false;
+    }
 
+    private void createDate(TaxRecord taxRecord, String receivingDay, String receivingTime) throws ParseException {
         try {
             DateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
             Date receivingDate = simpleDateFormat.parse(receivingDay + " " + receivingTime);
@@ -119,8 +169,6 @@ public class TaxReportServiceImpl implements TaxReportService {
         } catch (URISyntaxException | MalformedURLException e) {
             logger.error(e.getMessage(), e);
         }
-
-        return taxRecord;
     }
 
     private double parseNumber(String text) {

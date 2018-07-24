@@ -24,7 +24,6 @@ import javax.xml.parsers.ParserConfigurationException;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -42,23 +41,23 @@ public class ImportServiceImpl implements ImportService {
     @Override
     public Quarter parseTaxRecordFile(File file, String employeeId, Quarter.QuarterDefinition quarterDefinition) throws IOException, TikaException, SAXException, ParserConfigurationException {
         List<TaxRecord> taxRecords = null;
-        try {
-            taxRecords = taxReportService.parseDocument(file);
-            Quarter q = new Quarter(quarterDefinition);
-            q.addTaxRecords(taxRecords);
-
-            return q;
-        } catch (ParseException e) {
-            logger.error(e.getMessage(), e);
+        taxRecords = taxReportService.parseDocument(file);
+        if (taxRecords == null || taxRecords.isEmpty()) {
+            taxRecords = taxReportService.parseXlsDocument(file);
         }
+        Quarter q = new Quarter(quarterDefinition);
+        q.addTaxRecords(taxRecords);
 
-        String fileType = detectFileType(file);
+        return q;
 
-        Parser parser = createParser(file, fileType);
 
-        String s = getFileContent(parser, file);
-        logger.info("File content : " + s);
-        return null;
+//        String fileType = detectFileType(file);
+
+//        Parser parser = createParser(file, fileType);
+
+//        String s = getFileContent(parser, file);
+//        logger.info("File content : " + s);
+//        return null;
     }
 
     private String detectFileType(File file) throws IOException {
